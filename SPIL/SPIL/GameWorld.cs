@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 
 namespace SPIL
 {
@@ -11,6 +13,22 @@ namespace SPIL
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        //To get random numbers
+        public static Random rng = new Random();
+
+        //To add and remove objects in runtime
+        public static List<GameObject> NewGameObjects = new List<GameObject>();
+        public static List<GameObject> RemoveGameObjects = new List<GameObject>();
+        public static void AddGameObject(GameObject gameObject)
+        {
+            NewGameObjects.Add(gameObject);
+        }
+        public static void RemoveGameObject(GameObject gameObject)
+        {
+            RemoveGameObjects.Add(gameObject);
+        }
+
 
         public GameWorld()
         {
