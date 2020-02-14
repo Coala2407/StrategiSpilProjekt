@@ -13,7 +13,7 @@ namespace SPIL
 
         public Tile()
         {
-            size = 0.15f;
+            size = 0.25f;
             sprite = Assets.GrassTile1.FirstOrDefault();
         }
 
