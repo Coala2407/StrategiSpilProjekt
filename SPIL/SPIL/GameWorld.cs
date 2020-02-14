@@ -17,6 +17,9 @@ namespace SPIL
         //To get random numbers
         public static Random rng = new Random();
 
+        //Collection of all game objects
+        public static List<GameObject> GameObjectList = new List<GameObject>();
+
         //To add and remove objects in runtime
         public static List<GameObject> NewGameObjects = new List<GameObject>();
         public static List<GameObject> RemoveGameObjects = new List<GameObject>();
@@ -80,7 +83,27 @@ namespace SPIL
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            //Updates all game objects in the game
+            foreach (GameObject go in GameObjectList)
+            {
+                go.Update(gameTime);
+
+                foreach (GameObject other in GameObjectList)
+                {
+                    //Checks for collision between all game objects
+                    go.CheckCollision(other);
+                }
+            }
+
+            //Remove game objects in runtime
+            foreach (GameObject go in RemoveGameObjects)
+            {
+                GameObjectList.Remove(go);
+            }
+
+            //Add new game objects in runtime
+            GameObjectList.AddRange(NewGameObjects);
+            NewGameObjects.Clear();
 
             base.Update(gameTime);
         }
