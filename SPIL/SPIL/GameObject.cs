@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SPIL
+﻿namespace SPIL
 {
     public abstract class GameObject
     {
-
     }
 }
