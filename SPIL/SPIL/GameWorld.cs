@@ -11,6 +11,10 @@ namespace SPIL
     /// </summary>
     public class GameWorld : Game
     {
+        //Screen size
+        public const int Width = 1920;
+        public const int Height = 1080;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -47,7 +51,14 @@ namespace SPIL
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            //Screen setup
+            graphics.PreferredBackBufferWidth = Width;
+            graphics.PreferredBackBufferHeight = Height;
+            graphics.ToggleFullScreen();
+            this.IsMouseVisible = true;
+            this.Window.AllowAltF4 = false;
+            graphics.ApplyChanges();
+
 
             base.Initialize();
         }
@@ -60,8 +71,13 @@ namespace SPIL
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            //Load all assets
+            Assets.LoadContent(Content);
 
-            // TODO: use this.Content to load your game content here
+            //Add things here. After assets have been loaded
+
+            //Test tile
+            GameObjectList.Add(new Tile());
         }
 
         /// <summary>
@@ -116,6 +132,12 @@ namespace SPIL
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+            foreach (GameObject go in GameObjectList)
+            {
+                go.Draw(spriteBatch);
+            }
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

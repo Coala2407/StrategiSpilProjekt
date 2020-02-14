@@ -13,8 +13,8 @@ namespace SPIL
 
         public Tile()
         {
-
-
+            size = 0.15f;
+            sprite = Assets.GrassTile1.FirstOrDefault();
         }
 
         public override void OnCollision(GameObject otherObject)

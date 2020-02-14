@@ -28,13 +28,10 @@ namespace SPIL
 			int elapsedTime = 0;
 			int i = 0;
 
-
-			GrassTile1.Add(content.Load<Texture2D>("PlayableCharacter/grass_tile_1"));
-			GrassTile2.Add(content.Load<Texture2D>("PlayableCharacter/grass_tile_2"));
-			GrassTile3.Add(content.Load<Texture2D>("PlayableCharacter/grass_tile_3"));
-			SandTile.Add(content.Load<Texture2D>("PlayableCharacter/sand_tile"));
-
-
+			GrassTile1.Add(content.Load<Texture2D>("TileTextures/grass_tile_1"));
+			GrassTile2.Add(content.Load<Texture2D>("TileTextures/grass_tile_2"));
+			GrassTile3.Add(content.Load<Texture2D>("TileTextures/grass_tile_3"));
+			SandTile.Add(content.Load<Texture2D>("TileTextures/sand_tile"));
 		}
 
 	}
