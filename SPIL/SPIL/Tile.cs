@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    public abstract class GameObject
+    class Tile
     {
-
     }
 }

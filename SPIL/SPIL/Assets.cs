@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    public abstract class GameObject
+    public static class Assets
     {
 
     }
