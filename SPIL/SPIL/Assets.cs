@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
-namespace Ady_tutorial_for_animation
+namespace SPIL
 {
 	public static class Assets
 	{
