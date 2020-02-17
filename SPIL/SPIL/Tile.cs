@@ -43,9 +43,10 @@ namespace SPIL
         /// <summary>
         /// Default tile constructor
         /// </summary>
-        public Tile(bool isUnitPath)
+        public Tile(bool isUnitPath, Vector2 position)
         {
             this.isUnitPath = isUnitPath;
+            this.position = position;
             initialize();
         }
 
@@ -53,9 +54,10 @@ namespace SPIL
         /// Change the turn direction of the tile. Makes the units turn
         /// </summary>
         /// <param name="tiledirection"></param>
-        public Tile(bool isUnitPath, Direction tiledirection)
+        public Tile(bool isUnitPath, Vector2 position, Direction tiledirection)
         {
             this.isUnitPath = isUnitPath;
+            this.position = position;
             TileDirection = tiledirection;
             initialize();
         }
@@ -64,9 +66,10 @@ namespace SPIL
         /// Only used for first and last tile. Sets unit spawn/despawn locations.
         /// </summary>
         /// <param name="tileMode"></param>
-        public Tile(bool isUnitPath, Mode tileMode)
+        public Tile(bool isUnitPath, Vector2 position, Mode tileMode)
         {
             this.isUnitPath = isUnitPath;
+            this.position = position;
             TileMode = tileMode;
             initialize();
         }
