@@ -36,10 +36,16 @@ namespace SPIL
         public Mode TileMode { get; set; }
 
         /// <summary>
+        /// Set to true if units walk on the tile. Towers can't be built on a path tile.
+        /// </summary>
+        bool isUnitPath;
+        public bool IsUnitPath { get; set; }
+        /// <summary>
         /// Default tile constructor
         /// </summary>
-        public Tile()
+        public Tile(bool isUnitPath)
         {
+            this.isUnitPath = isUnitPath;
             initialize();
         }
 
@@ -47,8 +53,9 @@ namespace SPIL
         /// Change the turn direction of the tile. Makes the units turn
         /// </summary>
         /// <param name="tiledirection"></param>
-        public Tile(Direction tiledirection)
+        public Tile(bool isUnitPath, Direction tiledirection)
         {
+            this.isUnitPath = isUnitPath;
             TileDirection = tiledirection;
             initialize();
         }
@@ -57,8 +64,9 @@ namespace SPIL
         /// Only used for first and last tile. Sets unit spawn/despawn locations.
         /// </summary>
         /// <param name="tileMode"></param>
-        public Tile(Mode tileMode)
+        public Tile(bool isUnitPath, Mode tileMode)
         {
+            this.isUnitPath = isUnitPath;
             TileMode = tileMode;
             initialize();
         }

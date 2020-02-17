@@ -77,7 +77,7 @@ namespace SPIL
             //Add things here. After assets have been loaded
 
             //Test tile
-            GameObjectList.Add(new Tile());
+            GameObjectList.Add(new Tile(false));
         }
 
         /// <summary>
