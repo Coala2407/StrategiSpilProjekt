@@ -39,7 +39,10 @@ namespace SPIL
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             SpriteEffects effect = SpriteEffects.None;
-            spriteBatch.Draw(sprite, position, null, Color.White, MathHelper.ToRadians(rotation), origin, size, effect, drawLayer);
+            if (sprite != null)
+            {
+                spriteBatch.Draw(sprite, position, null, Color.White, MathHelper.ToRadians(rotation), origin, size, effect, drawLayer);
+            }
         }
 
         /// <summary>
