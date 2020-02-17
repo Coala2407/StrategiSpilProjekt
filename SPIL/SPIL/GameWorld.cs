@@ -74,10 +74,113 @@ namespace SPIL
             //Load all assets
             Assets.LoadContent(Content);
 
-            //Add things here. After assets have been loaded
+            byte tileMod = 54;
 
-            //Test tile
-            GameObjectList.Add(new Tile(false, new Vector2(20, 20)));
+            //Add things here. After assets have been loaded
+            //textures: 0 = grass1, 1=grass2, 2=grass3, 3=sand, 4=water 54x54p, 20x20 tiles
+            //GameObjectList.Add(new Tile(false, new Vector2(20, 20), 0));
+            //GameObjectList.Add(new Tile(false, new Vector2(120, 20), 1));
+            //GameObjectList.Add(new Tile(false, new Vector2(220, 20), 2));
+            //GameObjectList.Add(new Tile(false, new Vector2(320, 20), 3));
+            //GameObjectList.Add(new Tile(false, new Vector2(420, 20), 4));
+            for (int i = 0; i < 20; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), 0), 0));
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i*tileMod), tileMod), 3));
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 2; j < 20; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), j * tileMod), 0));
+                }
+            }
+            for (int i = 2; i < 20; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2(0, (i * tileMod)), 0));
+            }
+            for (int i = 2; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((3*tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 17; i < 20; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((3 * tileMod), (i * tileMod)), 0));
+            }
+            for (int i = 4; i < 9; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (16 * tileMod)), 3));
+            }
+            for (int i = 10; i < 16; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((7 * tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 8; i < 14; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (10 * tileMod)), 3));
+            }
+            for (int i = 11; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((13 * tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 13; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (16 * tileMod)), 3));
+            }
+            for (int i = 7; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((16 * tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 6; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (7 * tileMod)), 3));
+            }
+            for (int i = 3; i < 7; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((6 * tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 6; i < 19; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (3 * tileMod)), 3));
+            }
+            for (int i = 3; i < 19; i++)
+            {
+                GameObjectList.Add(new Tile(true, new Vector2((18 * tileMod), (i * tileMod)), 3));
+            }
+            for (int i = 4; i < 20; i++)
+            {
+                for (int j = 1; j < 3; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), j * tileMod), 0));
+                }
+            }
+            for (int i = 4; i < 6; i++)
+            {
+                for (int j = 0; j < 15; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), j * tileMod), 0));
+                }
+            }
+            for (int i = 7; i < 18; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (4 * tileMod)), 0));
+            }
+            for (int i = 7; i < 17; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (6 * tileMod)), 0));
+            }
+            GameObjectList.Add(new Tile(false, new Vector2((7*tileMod), (5*tileMod)), 0));
+            for (int i = 8; i < 18; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (5 * tileMod)), 4));
+            }
+            for (int i = 6; i < 16; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
+            }
         }
 
         /// <summary>
