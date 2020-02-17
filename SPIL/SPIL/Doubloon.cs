@@ -8,19 +8,23 @@ namespace SPIL
 {
     class Doubloon
     {
+        /// <summary>
+        /// Ammount of Doubloons the player has
+        /// </summary>
         int ammount;
+        public int Ammount { get; set; }
 
         public void GiveDoubloon(int ammountToGive)
         {
-            ammount += ammountToGive;
+            Ammount += ammountToGive;
         }
 
         public void RemoveDoubloon(int ammountToRemove)
         {
-            ammount -= ammountToRemove;
-            if (ammount < 0)
+            Ammount -= ammountToRemove;
+            if (Ammount < 0)
             {
-                ammount = 0;
+                Ammount = 0;
             }
         }
     }
