@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    class Tower
+    class UI
     {
-        int buyCost;
-        float attackSpeed;
-        float attackRange;
-        Unit attackTarget;
     }
 }
