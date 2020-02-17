@@ -110,7 +110,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((3 * tileMod), (i * tileMod)), 0));
             }
-            for (int i = 4; i < 9; i++)
+            for (int i = 4; i < 8; i++)
             {
                 GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), (16 * tileMod)), 3));
             }
