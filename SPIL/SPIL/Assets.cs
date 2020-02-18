@@ -18,6 +18,7 @@ namespace SPIL
 		public static List<Texture2D> PirateWalkD = new List<Texture2D>();
         public static List<Texture2D> TileSprites = new List<Texture2D>();
         public static Texture2D UIBackground;
+        public static List<Texture2D> UIButtons = new List<Texture2D>();
         public static List<Texture2D> ArrowSprite = new List<Texture2D>();
 		public static List<Texture2D> MoneyMansprite = new List<Texture2D>();
         /// <summary>
@@ -54,8 +55,8 @@ namespace SPIL
             TileSprites.Add(content.Load<Texture2D>("TileTextures/water_tile"));
 
             UIBackground = content.Load<Texture2D>("BlurredPlanks");
-
-			//MoneyMansprite.Add(content.Load<Texture2D>("PriateWalkingAnims/MoneyMan"));
+            UIButtons.Add(content.Load<Texture2D>("button1"));
+            //MoneyMansprite.Add(content.Load<Texture2D>("PriateWalkingAnims/MoneyMan"));
 
 
         }

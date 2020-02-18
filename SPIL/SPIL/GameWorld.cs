@@ -234,7 +234,7 @@ namespace SPIL
 
             //UI
             GameObjectList.Add(new UI());
-            GameObjectList.Add(new UIButton(new Vector2(1080, 500), Assets.TileSprites[0], "Text", "test"));
+            GameObjectList.Add(new UIButton(new Vector2(1080, 500), Assets.UIButtons[0], "Text", "test"));
             //Arrow
             GameObjectList.Add(new Arrow(new Vector2(11, (1*tileMod+11)), 0));
             //unit1 = new Unit(unitTexture, Vector2.Zero, 4, 10, 0.5f);
@@ -297,7 +297,7 @@ namespace SPIL
             {
                 go.Draw(spriteBatch);
             }
-            unit1.Draw(spriteBatch);
+            //unit1.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
 

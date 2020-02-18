@@ -10,11 +10,19 @@ namespace SPIL
 {
     class UIButton : UI
     {
-        public UIButton(Vector2 position, Texture2D texture, string text, string name)
+        public UIButton(Vector2 position, Texture2D sprite, string text, string name)
         {
             this.position = position;
             this.name = name;
-            sprite = texture;
+            this.sprite = sprite;
+        }
+
+        public UIButton(Vector2 position, Texture2D sprite, string text, string name, float size)
+        {
+            this.position = position;
+            this.name = name;
+            this.sprite = sprite;
+            this.size = size;
         }
     }
 }
