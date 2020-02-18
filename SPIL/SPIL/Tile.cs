@@ -43,10 +43,13 @@ namespace SPIL
         /// <summary>
         /// Default tile constructor
         /// </summary>
-        public Tile(bool isUnitPath, Vector2 position)
+        private int spriteIndex;
+        public Tile(bool isUnitPath, Vector2 position, int spriteIndex)
         {
+            this.spriteIndex = spriteIndex;
             this.isUnitPath = isUnitPath;
             this.position = position;
+
             initialize();
         }
 
@@ -54,8 +57,9 @@ namespace SPIL
         /// Change the turn direction of the tile. Makes the units turn
         /// </summary>
         /// <param name="tiledirection"></param>
-        public Tile(bool isUnitPath, Vector2 position, Direction tiledirection)
+        public Tile(bool isUnitPath, Vector2 position, Direction tiledirection, int spriteIndex)
         {
+            this.spriteIndex = spriteIndex;
             this.isUnitPath = isUnitPath;
             this.position = position;
             TileDirection = tiledirection;
@@ -66,12 +70,14 @@ namespace SPIL
         /// Only used for first and last tile. Sets unit spawn/despawn locations.
         /// </summary>
         /// <param name="tileMode"></param>
-        public Tile(bool isUnitPath, Vector2 position, Mode tileMode)
+        public Tile(bool isUnitPath, Vector2 position, Mode tileMode, int spriteIndex)
         {
+            this.spriteIndex = spriteIndex;
             this.isUnitPath = isUnitPath;
             this.position = position;
             TileMode = tileMode;
             initialize();
+
         }
 
         /// <summary>
@@ -80,7 +86,7 @@ namespace SPIL
         private void initialize()
         {
             size = 0.25f;
-            sprite = Assets.GrassTile1.FirstOrDefault();
+            sprite = Assets.TileSprites[spriteIndex];
         }
 
         public override void OnCollision(GameObject otherObject)
