@@ -73,7 +73,6 @@ namespace SPIL
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Load all assets
             Assets.LoadContent(Content);
-
             byte tileMod = 54;
 
             //Add things here. After assets have been loaded
@@ -234,6 +233,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((12 * tileMod), (i * tileMod)), 0));
             }
+            GameObjectList.Add(new Arrow(new Vector2(11, (1*tileMod+11)), 0));
         }
 
         /// <summary>
