@@ -181,6 +181,17 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
+            for (int i = 6; i < 16; i++)
+            {
+                for (int j = 8; j < 10; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (j * tileMod)), 0));
+                }
+            }
+            for (int i = 10; i < 15; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((6 * tileMod), (i * tileMod)), 0));
+            }
         }
 
         /// <summary>
