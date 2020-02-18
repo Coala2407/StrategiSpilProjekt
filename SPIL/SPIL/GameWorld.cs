@@ -55,7 +55,7 @@ namespace SPIL
             //Screen setup
             graphics.PreferredBackBufferWidth = Width;
             graphics.PreferredBackBufferHeight = Height;
-            graphics.ToggleFullScreen();
+            //graphics.ToggleFullScreen();
             this.IsMouseVisible = true;
             this.Window.AllowAltF4 = false;
             graphics.ApplyChanges();
@@ -74,15 +74,9 @@ namespace SPIL
             //Load all assets
             Assets.LoadContent(Content);
 
-            byte tileMod = 54;
-
             //Add things here. After assets have been loaded
             //textures: 0 = grass1, 1=grass2, 2=grass3, 3=sand, 4=water 54x54p, 20x20 tiles
-            //GameObjectList.Add(new Tile(false, new Vector2(20, 20), 0));
-            //GameObjectList.Add(new Tile(false, new Vector2(120, 20), 1));
-            //GameObjectList.Add(new Tile(false, new Vector2(220, 20), 2));
-            //GameObjectList.Add(new Tile(false, new Vector2(320, 20), 3));
-            //GameObjectList.Add(new Tile(false, new Vector2(420, 20), 4));
+            byte tileMod = 54;
             for (int i = 0; i < 20; i++)
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), 0), 0));
@@ -234,6 +228,10 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((12 * tileMod), (i * tileMod)), 0));
             }
+
+            //UI
+            GameObjectList.Add(new UI());
+            GameObjectList.Add(new UIButton(new Vector2(1080, 500), Assets.TileSprites[0], "Text", "test"));
         }
 
         /// <summary>
