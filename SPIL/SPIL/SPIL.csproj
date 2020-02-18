@@ -55,6 +55,7 @@
     <Compile Include="Tile.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

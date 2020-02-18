@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
     class Unit : GameObject
     {
-        int health = 4;
+        int health;
         
         bool alive = true;
 
-        float speed = 0.5f;
+        float speed;
 
         int goldTaken;
 
@@ -33,6 +34,13 @@ namespace SPIL
             get { return goldTaken; }
         }
 
+        public Unit(Texture2D texture, Vector2 position, int health, int goldTaken, float speed)
+        {
+            this.health = health;
+            this.goldTaken = goldTaken;
+            this.speed = speed;
+        }
+
         public override void OnCollision(GameObject otherObject)
         {
             throw new NotImplementedException();
@@ -44,6 +52,7 @@ namespace SPIL
             {
                 alive = false;
             }
+
 
         }
     }
