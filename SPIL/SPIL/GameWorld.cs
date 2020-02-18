@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SPIL
 {
@@ -36,7 +37,7 @@ namespace SPIL
             RemoveGameObjects.Add(gameObject);
         }
 
-        Unit unit1;
+       
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -58,7 +59,6 @@ namespace SPIL
             this.IsMouseVisible = true;
             this.Window.AllowAltF4 = false;
             graphics.ApplyChanges();
-
 
             base.Initialize();
         }
@@ -89,7 +89,7 @@ namespace SPIL
             }
             for (int i = 0; i < 4; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((i*tileMod), tileMod), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), tileMod), 3));
             }
             for (int i = 0; i < 3; i++)
             {
@@ -104,7 +104,7 @@ namespace SPIL
             }
             for (int i = 2; i < 17; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((3*tileMod), (i * tileMod)), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((3 * tileMod), (i * tileMod)), 3));
             }
             for (int i = 17; i < 20; i++)
             {
@@ -159,7 +159,7 @@ namespace SPIL
             }
             for (int i = 4; i < 6; i++)
             {
-                for (int j = 0; j < 15; j++)
+                for (int j = 0; j < 16; j++)
                 {
                     GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), j * tileMod), 0));
                 }
@@ -172,17 +172,70 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (6 * tileMod)), 0));
             }
-            GameObjectList.Add(new Tile(false, new Vector2((7*tileMod), (5*tileMod)), 0));
+            GameObjectList.Add(new Tile(false, new Vector2((7 * tileMod), (5 * tileMod)), 0));
             for (int i = 8; i < 18; i++)
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (5 * tileMod)), 4));
             }
-            for (int i = 6; i < 16; i++)
+            for (int i = 6; i < 17; i++)
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
 
-            
+            for (int i = 4; i < 18; i++)
+            {
+                for (int j = 17;  j < 20;  j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (j * tileMod)), 0));
+                }
+            }
+            GameObjectList.Add(new Tile(false, new Vector2((18 * tileMod), (19 * tileMod)), 0));
+            for (int i = 3; i < 20; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((19 * tileMod), (i * tileMod)), 0));
+            }
+            for (int i = 6; i < 16; i++)
+            {
+                for (int j = 8; j < 10; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (j * tileMod)), 0));
+                }
+            }
+            for (int i = 10; i < 16; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((6 * tileMod), (i * tileMod)), 0));
+            }
+            for (int i = 14; i < 16; i++)
+            {
+                for (int j = 10; j < 16; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (j * tileMod)), 0));
+                }
+            }
+            for (int i = 9; i < 12; i++)
+            {
+                for (int j = 12; j < 16; j++)
+                {
+                    GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (j * tileMod)), 4));
+                }
+            }
+            for (int i = 8; i < 13; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (11 * tileMod)), 0));
+            }
+            for (int i = 8; i < 13; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (16 * tileMod)), 0));
+            }
+            for (int i = 12; i < 16; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((8 * tileMod), (i * tileMod)), 0));
+            }
+            for (int i = 12; i < 16; i++)
+            {
+                GameObjectList.Add(new Tile(false, new Vector2((12 * tileMod), (i * tileMod)), 0));
+            }
+
         }
 
         /// <summary>
@@ -244,7 +297,7 @@ namespace SPIL
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
-            
+
             base.Draw(gameTime);
         }
     }

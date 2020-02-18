@@ -9,12 +9,13 @@ namespace SPIL
 {
     class Level
     {
-		/*public void UnitSpawner()
-        {
-            GameWorld.AddGameObject(GameObject )
-        }
-        */
+		/*
+		public void UnitSpawner()
+
+        public void UnitSpawner()*/
+
 		
+
     }
 
 }
