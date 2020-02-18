@@ -18,6 +18,8 @@ namespace SPIL
 		public static List<Texture2D> PirateWalkD = new List<Texture2D>();
         public static List<Texture2D> TileSprites = new List<Texture2D>();
         public static Texture2D UIBackground;
+        public static List<Texture2D> ArrowSprite = new List<Texture2D>();
+		public static List<Texture2D> MoneyMansprite = new List<Texture2D>();
         /// <summary>
         /// Her bliver de individuelle sprites tilføjet til deres egen liste som "PlayerCharWalkingRight"
         /// </summary>
@@ -26,6 +28,9 @@ namespace SPIL
 		{
 			int elapsedTime = 0;
 			int i = 0;
+
+            ArrowSprite.Add(content.Load<Texture2D>("arrow-32-32"));
+            ArrowSprite.Add(content.Load<Texture2D>("blank"));
 
 			PirateWalkR.Add(content.Load<Texture2D>("PirateWalkingAnims/PirateWalkingRight1"));
 			PirateWalkR.Add(content.Load<Texture2D>("PirateWalkingAnims/PirateWalkingRight2"));
@@ -49,6 +54,10 @@ namespace SPIL
             TileSprites.Add(content.Load<Texture2D>("TileTextures/water_tile"));
 
             UIBackground = content.Load<Texture2D>("BlurredPlanks");
+
+			//MoneyMansprite.Add(content.Load<Texture2D>("PriateWalkingAnims/MoneyMan"));
+
+
         }
 	}
 }

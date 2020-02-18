@@ -37,7 +37,8 @@ namespace SPIL
             RemoveGameObjects.Add(gameObject);
         }
 
-       
+        Unit unit1;
+        
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -73,6 +74,7 @@ namespace SPIL
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Load all assets
             Assets.LoadContent(Content);
+			GameObjectList.Add(new Collector(new Vector2(1200, 300)));
 
             //Add things here. After assets have been loaded
             //textures: 0 = grass1, 1=grass2, 2=grass3, 3=sand, 4=water 54x54p, 20x20 tiles
@@ -175,6 +177,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
+
             for (int i = 4; i < 18; i++)
             {
                 for (int j = 17;  j < 20;  j++)
@@ -232,6 +235,9 @@ namespace SPIL
             //UI
             GameObjectList.Add(new UI());
             GameObjectList.Add(new UIButton(new Vector2(1080, 500), Assets.TileSprites[0], "Text", "test"));
+            //Arrow
+            GameObjectList.Add(new Arrow(new Vector2(11, (1*tileMod+11)), 0));
+            //unit1 = new Unit(unitTexture, Vector2.Zero, 4, 10, 0.5f);
         }
 
         /// <summary>
@@ -291,6 +297,7 @@ namespace SPIL
             {
                 go.Draw(spriteBatch);
             }
+            unit1.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
