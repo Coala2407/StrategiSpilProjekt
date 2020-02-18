@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SPIL
 {
@@ -59,7 +60,6 @@ namespace SPIL
             this.Window.AllowAltF4 = false;
             graphics.ApplyChanges();
 
-
             base.Initialize();
         }
 
@@ -89,7 +89,7 @@ namespace SPIL
             }
             for (int i = 0; i < 4; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((i*tileMod), tileMod), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), tileMod), 3));
             }
             for (int i = 0; i < 3; i++)
             {
@@ -104,7 +104,7 @@ namespace SPIL
             }
             for (int i = 2; i < 17; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((3*tileMod), (i * tileMod)), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((3 * tileMod), (i * tileMod)), 3));
             }
             for (int i = 17; i < 20; i++)
             {
@@ -172,7 +172,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (6 * tileMod)), 0));
             }
-            GameObjectList.Add(new Tile(false, new Vector2((7*tileMod), (5*tileMod)), 0));
+            GameObjectList.Add(new Tile(false, new Vector2((7 * tileMod), (5 * tileMod)), 0));
             for (int i = 8; i < 18; i++)
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (5 * tileMod)), 4));
@@ -242,7 +242,7 @@ namespace SPIL
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
-            
+
             base.Draw(gameTime);
         }
     }
