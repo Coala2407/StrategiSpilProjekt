@@ -36,7 +36,7 @@ namespace SPIL
             RemoveGameObjects.Add(gameObject);
         }
 
-
+        Unit unit1;
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -181,6 +181,8 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
+
+            unit1 = new Unit
         }
 
         /// <summary>
