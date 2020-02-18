@@ -48,6 +48,7 @@
     <Compile Include="Doubloon.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Pointer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
@@ -56,7 +57,6 @@
     <Compile Include="Tile.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Unit.cs" />
-    <Compile Include="Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\BlurredPlanks.png" />
     <Content Include="Content\PirateWalkingAnims\PirateWalkingDown1.png" />
     <Content Include="Content\PirateWalkingAnims\PirateWalkingDown2.png" />
     <Content Include="Content\PirateWalkingAnims\PirateWalkingDown3.png" />

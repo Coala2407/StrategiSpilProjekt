@@ -4,43 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
 	class Collector : GameObject
 	{
-		delegate void DelegateResources(int a);
-		void Start()
+		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
+		public bool setToIdle = true;
+		protected Texture2D currentSprite;
+		protected float animTime;
+		private int spriteIndex;
+		public Collector(Vector2 position)
 		{
-			DelegateResources myDelegate = Resources;
-		}
+			this.position = position;
 
-		protected Vector2 velocity;
-		protected float moveSpeed;
-		protected Vector2 position;
-
-		public Collector()
-		{
-
+			size = 1;
+			sprite = Assets.PirateWalkU[spriteIndex];
+			
 		}
 
 		public override void Update(GameTime gameTime)
 		{
 
+			
 		}
+		
 		public override void OnCollision(GameObject otherObject)
 		{
 			
 		}
-		private void Move(GameTime gameTime)
-		{
-			float deltaTime= (float)gameTime.ElapsedGameTime.TotalSeconds;
-			position += ((velocity * moveSpeed) * deltaTime);
-		}
-		protected void Resources(int a) 
-		{ 
-			
-		}
-
+		
 	}
 }

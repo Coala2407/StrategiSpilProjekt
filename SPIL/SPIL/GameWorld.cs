@@ -73,7 +73,8 @@ namespace SPIL
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Load all assets
             Assets.LoadContent(Content);
-            byte tileMod = 54;
+			GameObjectList.Add(new Collector(new Vector2(1200, 300)));
+			byte tileMod = 54;
 
             //Add things here. After assets have been loaded
             //textures: 0 = grass1, 1=grass2, 2=grass3, 3=sand, 4=water 54x54p, 20x20 tiles
@@ -180,6 +181,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
+
             for (int i = 4; i < 18; i++)
             {
                 for (int j = 17;  j < 20;  j++)
