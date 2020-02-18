@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:BlurredPlanks.png
 
+#begin PirateWalkingAnims/MoneyMan.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/MoneyMan.png
+
 #begin PirateWalkingAnims/PirateWalkingDown1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +48,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:PirateWalkingAnims/PirateWalkingDown1.png
+
+#begin PirateWalkingAnims/PirateWalkingDown1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingDown1.png
+
+#begin PirateWalkingAnims/PirateWalkingDown2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingDown2.png
 
 #begin PirateWalkingAnims/PirateWalkingDown2.png
 /importer:TextureImporter
@@ -61,6 +97,18 @@
 /processorParam:TextureFormat=Color
 /build:PirateWalkingAnims/PirateWalkingDown3.png
 
+#begin PirateWalkingAnims/PirateWalkingDown3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingDown3.png
+
 #begin PirateWalkingAnims/PirateWalkingRight1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +120,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:PirateWalkingAnims/PirateWalkingRight1.png
+
+#begin PirateWalkingAnims/PirateWalkingRight1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingRight1.png
+
+#begin PirateWalkingAnims/PirateWalkingRight2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingRight2.png
 
 #begin PirateWalkingAnims/PirateWalkingRight2.png
 /importer:TextureImporter
@@ -97,6 +169,30 @@
 /processorParam:TextureFormat=Color
 /build:PirateWalkingAnims/PirateWalkingRight3.png
 
+#begin PirateWalkingAnims/PirateWalkingRight3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingRight3.png
+
+#begin PirateWalkingAnims/PirateWalkingUp1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingUp1.png
+
 #begin PirateWalkingAnims/PirateWalkingUp1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -120,6 +216,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:PirateWalkingAnims/PirateWalkingUp2.png
+
+#begin PirateWalkingAnims/PirateWalkingUp2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingUp2.png
+
+#begin PirateWalkingAnims/PirateWalkingUp3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PirateWalkingAnims/PirateWalkingUp3.png
 
 #begin PirateWalkingAnims/PirateWalkingUp3.png
 /importer:TextureImporter
