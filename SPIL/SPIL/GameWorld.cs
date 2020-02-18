@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SPIL
 {
@@ -60,7 +61,6 @@ namespace SPIL
             this.Window.AllowAltF4 = false;
             graphics.ApplyChanges();
 
-
             base.Initialize();
         }
 
@@ -74,8 +74,8 @@ namespace SPIL
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Load all assets
             Assets.LoadContent(Content);
-
-            byte tileMod = 54;
+			GameObjectList.Add(new Collector(new Vector2(1200, 300)));
+			byte tileMod = 54;
 
             //Add things here. After assets have been loaded
             //textures: 0 = grass1, 1=grass2, 2=grass3, 3=sand, 4=water 54x54p, 20x20 tiles
@@ -90,7 +90,7 @@ namespace SPIL
             }
             for (int i = 0; i < 4; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((i*tileMod), tileMod), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((i * tileMod), tileMod), 3));
             }
             for (int i = 0; i < 3; i++)
             {
@@ -105,7 +105,7 @@ namespace SPIL
             }
             for (int i = 2; i < 17; i++)
             {
-                GameObjectList.Add(new Tile(true, new Vector2((3*tileMod), (i * tileMod)), 3));
+                GameObjectList.Add(new Tile(true, new Vector2((3 * tileMod), (i * tileMod)), 3));
             }
             for (int i = 17; i < 20; i++)
             {
@@ -173,7 +173,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (6 * tileMod)), 0));
             }
-            GameObjectList.Add(new Tile(false, new Vector2((7*tileMod), (5*tileMod)), 0));
+            GameObjectList.Add(new Tile(false, new Vector2((7 * tileMod), (5 * tileMod)), 0));
             for (int i = 8; i < 18; i++)
             {
                 GameObjectList.Add(new Tile(false, new Vector2((i * tileMod), (5 * tileMod)), 4));
@@ -182,6 +182,7 @@ namespace SPIL
             {
                 GameObjectList.Add(new Tile(false, new Vector2((17 * tileMod), (i * tileMod)), 4));
             }
+
             for (int i = 4; i < 18; i++)
             {
                 for (int j = 17;  j < 20;  j++)
@@ -300,7 +301,7 @@ namespace SPIL
             unit1.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
-            
+
             base.Draw(gameTime);
         }
     }
