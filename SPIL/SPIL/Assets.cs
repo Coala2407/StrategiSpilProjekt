@@ -10,7 +10,6 @@ namespace SPIL
 {
 	public static class Assets
 	{
-
 		/// <summary>
 		/// Her bliver listerne der skal indeholde spritesne til animationerne lavet
 		/// </summary>
@@ -47,8 +46,6 @@ namespace SPIL
             TileSprites.Add(content.Load<Texture2D>("TileTextures/grass_tile_3"));
             TileSprites.Add(content.Load<Texture2D>("TileTextures/sand_tile"));
             TileSprites.Add(content.Load<Texture2D>("TileTextures/water_tile"));
-
         }
-
 	}
 }
