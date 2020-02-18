@@ -37,7 +37,8 @@ namespace SPIL
             RemoveGameObjects.Add(gameObject);
         }
 
-       
+        Unit unit1;
+        
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -236,6 +237,7 @@ namespace SPIL
                 GameObjectList.Add(new Tile(false, new Vector2((12 * tileMod), (i * tileMod)), 0));
             }
             GameObjectList.Add(new Arrow(new Vector2(11, (1*tileMod+11)), 0));
+            //unit1 = new Unit(unitTexture, Vector2.Zero, 4, 10, 0.5f);
         }
 
         /// <summary>
@@ -295,6 +297,7 @@ namespace SPIL
             {
                 go.Draw(spriteBatch);
             }
+            unit1.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
