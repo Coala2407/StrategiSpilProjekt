@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-	class Slave
+	public class Slave
 	{
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
@@ -34,6 +34,7 @@ namespace SPIL
 
 		protected Vector2 velocity;
 		protected string name;
+		
 
 		public Slave(Vector2 position, string name)
 		{
@@ -60,6 +61,7 @@ namespace SPIL
 
 			}
 		}
+		
 		private void CollectorAI()
 		{
 			bool isDead = false;
@@ -70,8 +72,15 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
+							velocity += new Vector2( , 0);
+							Thread.Sleep(10);
+							
+						}
+						while (carryingCoal == true)
+						{
 							velocity += new Vector2((float)1, 0);
-								
+							Thread.Sleep(10);
+
 						}
 						break;
 
@@ -89,8 +98,6 @@ namespace SPIL
 						}
 						break;
 				}
-
-
 			}
 			Thread.Sleep(10);
 		}
@@ -99,6 +106,18 @@ namespace SPIL
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
 		}
+		public static bool CheckCollision(GameObject object1, GameObject object2)
+		{
+			if (object1.collisionBox.Intersects(object2.collisionBox))
+			{
+				object1.DebugIsColliding = true;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 
+		}
 	}
 }

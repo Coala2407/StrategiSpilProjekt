@@ -28,11 +28,15 @@ namespace SPIL
 
         protected bool spriteFlippedY;
 
-        /// <summary>
-        /// Runs on collision with other objects
-        /// </summary>
-        /// <param name="otherObject"></param>
-        public abstract void OnCollision(GameObject otherObject);
+		public Rectangle collisionBox;
+
+		public bool DebugIsColliding;
+
+		/// <summary>
+		/// Runs on collision with other objects
+		/// </summary>
+		/// <param name="otherObject"></param>
+		public abstract void OnCollision(GameObject otherObject);
 
         /// <summary>
         /// Draw object sprite
