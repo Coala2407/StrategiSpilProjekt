@@ -33,6 +33,7 @@ namespace SPIL
         public CoalMine()
         {
             Thread coalMineThread = new Thread(coalMineMethod);
+            coalMineThread.IsBackground = true;
             coalMineThread.Start();
             sprite = Assets.CoalMine;
             size = 0.2f;

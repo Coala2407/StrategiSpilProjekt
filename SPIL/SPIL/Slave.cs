@@ -43,8 +43,6 @@ namespace SPIL
 			this.name = name;
 			sprite = Assets.SlaveSprite;
 			 
-			
-
 			Thread collectorAI = new Thread(CollectorAI);
             collectorAI.IsBackground = true;
 			collectorAI.Start();
@@ -56,17 +54,7 @@ namespace SPIL
 			Move(gameTime);
 
 		}
-
-
-		public override void OnCollision(GameObject otherObject)
-		{
-			if (true)
-			{
-
-			}
-		}
-		
-		
+	
 		public void CollectorAI()
 		{
 			bool isDead = false;

@@ -12,7 +12,7 @@ namespace SPIL
 {
     class GoldMine : GameObject
     {
-        int amount = 1000;
+        int amount = 500;
 
         public int Amount
         {
@@ -34,6 +34,7 @@ namespace SPIL
         public GoldMine()
         {
             Thread goldMineThread = new Thread(GoldMineMethod);
+            goldMineThread.IsBackground = true;
             goldMineThread.Start();
             sprite = Assets.GoldMine;
             size = 0.5f;
@@ -44,7 +45,7 @@ namespace SPIL
             while (true)
             {
                 Thread.Sleep(500);
-                amount += 10;
+                amount += 5;
             }
         }
     }
