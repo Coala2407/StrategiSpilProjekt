@@ -109,7 +109,7 @@ namespace SPIL
 						break;
 
 					case "DiamondMiner":
-						while (carryingGold == false)
+						while (carryingDiamond == false)
 						{
 							walkDir = GameWorld.DdiamondMine.position - position;
 							if (walkDir != Vector2.Zero)
@@ -118,8 +118,9 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
-						}
-						while (carryingGold == true)
+                            
+                        }
+						while (carryingDiamond == true)
 						{
 							walkDir = GameWorld.Bwank.position - position;
 							if (walkDir != Vector2.Zero)
@@ -128,6 +129,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+                            
 						}
 						break;
 				}
