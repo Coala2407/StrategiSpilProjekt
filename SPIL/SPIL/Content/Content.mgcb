@@ -114,5 +114,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprite_16.png;miner.png
+/build:sprite_16.png
 
