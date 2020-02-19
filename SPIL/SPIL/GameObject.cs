@@ -32,6 +32,8 @@ namespace SPIL
 
 		public bool DebugIsColliding;
 
+        protected SpriteFont font;
+
 		/// <summary>
 		/// Runs on collision with other objects
 		/// </summary>

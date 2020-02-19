@@ -77,6 +77,11 @@ namespace SPIL
             GameObjectList.Add(new Gold());
             GameObjectList.Add(new DiamondMine());
             GameObjectList.Add(new Diamond());
+            GameObjectList.Add(new FontCoal());
+            GameObjectList.Add(new FontGold());
+            GameObjectList.Add(new FontDiamond());
+
+
             // TODO: use this.Content to load your game content here
         }
 

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace SPIL
 {
@@ -21,7 +22,7 @@ namespace SPIL
             coalThread.Start();
             sprite = Assets.CoalCurrency;
             size = 0.2f;
-            position = new Vector2(795, 135);
+            position = new Vector2(795, 10);
         }
 
         private void CoalMethod()

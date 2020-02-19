@@ -46,6 +46,9 @@
     <Compile Include="Coal.cs" />
     <Compile Include="Diamond.cs" />
     <Compile Include="DiamondMine.cs" />
+    <Compile Include="FontCoal.cs" />
+    <Compile Include="FontDiamond.cs" />
+    <Compile Include="FontGold.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="Gold.cs" />
