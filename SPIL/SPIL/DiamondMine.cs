@@ -12,6 +12,21 @@ namespace SPIL
 {
     class DiamondMine : GameObject
     {
+        int amount = 100;
+
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                amount = value;
+                if (amount < 0)
+                {
+                    amount = 0;
+                }
+            }
+        }
+
         public override void OnCollision(GameObject otherObject)
         {
 
@@ -19,6 +34,7 @@ namespace SPIL
         public DiamondMine()
         {
             Thread diamondMineThread = new Thread(DiamondMineMethod);
+            diamondMineThread.IsBackground = true;
             diamondMineThread.Start();
             sprite = Assets.DiamondMine;
             size = 0.3f;
@@ -26,7 +42,11 @@ namespace SPIL
         }
         private void DiamondMineMethod()
         {
-            //do something
+            while (true)
+            {
+                Thread.Sleep(500);
+                amount += 1;
+            }
         }
     }
 }

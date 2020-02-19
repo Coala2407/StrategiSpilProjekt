@@ -60,22 +60,25 @@ namespace SPIL
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        public static Bank Bwank;
-        protected override void LoadContent()
+		/// <summary>
+		/// LoadContent will be called once per game and is the place to load
+		/// all of your content.
+		/// </summary>
+		public static Bank Bwank;
+		public static CoalMine CcoalMine;
+		
+		protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.LoadContent(Content);
 
 
-            Bwank = new Bank();
+			Bwank = new Bank();
+			CcoalMine = new CoalMine();
             //Load shit right here boi:
-			GameObjectList.Add(new Bank());
-            GameObjectList.Add(new CoalMine());
+			GameObjectList.Add(Bwank);
+            GameObjectList.Add(CcoalMine);
             GameObjectList.Add(new Coal());
             GameObjectList.Add(new GoldMine());
             GameObjectList.Add(new Gold());
@@ -112,7 +115,15 @@ namespace SPIL
             //Spawn units
             if (Keyboard.HasBeenPressed(Keys.D1))
             {
-                GameObjectList.Add(new Slave(new Vector2(0,0), "GoldMiner"));
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+            }
+            if (Keyboard.HasBeenPressed(Keys.D2))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+            }
+            if (Keyboard.HasBeenPressed(Keys.D3))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
             }
             base.Update(gameTime);
         }

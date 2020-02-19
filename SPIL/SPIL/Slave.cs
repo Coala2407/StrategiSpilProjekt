@@ -43,8 +43,6 @@ namespace SPIL
 			this.name = name;
 			sprite = Assets.SlaveSprite;
 			 
-			
-
 			Thread collectorAI = new Thread(CollectorAI);
             collectorAI.IsBackground = true;
 			collectorAI.Start();
@@ -56,17 +54,7 @@ namespace SPIL
 			Move(gameTime);
 
 		}
-
-
-		public override void OnCollision(GameObject otherObject)
-		{
-			if (true)
-			{
-
-			}
-		}
-		
-		
+	
 		public void CollectorAI()
 		{
 			bool isDead = false;
@@ -77,8 +65,7 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
-
-							walkDir = GameWorld.Bwank.position - position;
+							walkDir = GameWorld.CcoalMine.position - position;
 							if (walkDir != Vector2.Zero)
 							{
 								walkDir.Normalize();
@@ -88,9 +75,13 @@ namespace SPIL
 						}
 						while (carryingCoal == true)
 						{
-							velocity += new Vector2((float)1, 0);
-							Thread.Sleep(10);
-
+							walkDir = GameWorld.Bwank.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
 						}
 						break;
 
@@ -127,9 +118,6 @@ namespace SPIL
 			{
 				return false;
 			}
-
 		}
-
-       
     }
 }
