@@ -8,5 +8,6 @@ namespace SPIL
 {
     class Mine
     {
+
     }
 }
