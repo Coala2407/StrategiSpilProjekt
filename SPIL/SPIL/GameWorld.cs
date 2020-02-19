@@ -120,7 +120,6 @@ namespace SPIL
 			GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
 			GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
 			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
-			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
 
             // TODO: use this.Content to load your game content here
             //Load Debug hitbox
