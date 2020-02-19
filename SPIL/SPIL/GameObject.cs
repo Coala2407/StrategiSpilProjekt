@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    abstract class GameObject
+    public abstract class GameObject
     {
         protected Vector2 position;
 

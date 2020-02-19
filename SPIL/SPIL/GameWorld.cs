@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace SPIL
 {
@@ -11,6 +12,22 @@ namespace SPIL
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        //All game objects. Used to draw
+        public static List<GameObject> GameObjectList = new List<GameObject>();
+        //To add and remove objects in runtime
+        public static List<GameObject> NewGameObjects = new List<GameObject>();
+        public static List<GameObject> RemoveGameObjects = new List<GameObject>();
+
+        public static void AddGameObject(GameObject gameObject)
+        {
+            NewGameObjects.Add(gameObject);
+        }
+
+        public static void RemoveGameObject(GameObject gameObject)
+        {
+            RemoveGameObjects.Add(gameObject);
+        }
 
         public GameWorld()
         {
@@ -42,7 +59,7 @@ namespace SPIL
             Assets.LoadContent(Content);
 
             //Load shit right here boi:
-            
+            GameObjectList.Add(new Bank());
 
 
             // TODO: use this.Content to load your game content here
@@ -79,9 +96,15 @@ namespace SPIL
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
 
+            foreach (GameObject go in GameObjectList)
+            {
+                go.Draw(spriteBatch);
+            }
+
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

@@ -4,29 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-    delegate void StartBanksHandler(Bank b);
-
-    class Bank
+    class Bank : GameObject
     {
-        public event StartBanksHandler StartBanks;
-        public event StartBanksHandler StartBank;
-
         public Bank()
         {
             Thread bankThread = new Thread(RunBank);
+            bankThread.Start();
+            sprite = Assets.BankSprite;
         }
 
         private void RunBank()
         {
             //Do some banking, mate
+            while (true)
+            {
+                
+            }
         }
 
-        protected virtual void OnBankStart()
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            StartBanks?.Invoke(this);
+            base.Draw(spriteBatch);
+        }
+
+        public override void OnCollision(GameObject otherObject)
+        {
+            
         }
     }
 }
