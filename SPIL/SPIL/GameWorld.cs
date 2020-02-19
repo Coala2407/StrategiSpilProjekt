@@ -79,7 +79,7 @@ namespace SPIL
             GameObjectList.Add(new FontCoal());
             GameObjectList.Add(new FontGold());
             GameObjectList.Add(new FontDiamond());
-
+            GameObjectList.Add(new FontCreateSlave());
 
             // TODO: use this.Content to load your game content here
         }

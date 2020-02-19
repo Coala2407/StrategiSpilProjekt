@@ -18,7 +18,6 @@ namespace SPIL
         {
             Thread fontThread = new Thread(fontMethod);
             fontThread.Start();
-            font = Assets.font;
         }
         private void fontMethod()
         {
