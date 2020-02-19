@@ -18,8 +18,6 @@ namespace SPIL
 		protected float animTime;
 		public float speed = 10f;
 				
-		
-
 		protected int Coal;
 		protected int carriedCoal;
 		protected bool carryingCoal;
@@ -71,7 +69,13 @@ namespace SPIL
 								walkDir.Normalize();
 							}
 							position += walkDir;						
-							Thread.Sleep((int)speed);							
+							Thread.Sleep((int)speed);
+                            //if (position.X > GameWorld.CcoalMine.position.X)
+                            //{
+                            //    Thread.Sleep(100);
+                            //    GameWorld.fontCoal.coalCurrency++;
+							//    carryingCoal = true;
+                            //}
 						}
 						while (carryingCoal == true)
 						{
@@ -82,6 +86,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+							carryingCoal = false;
 						}
 						break;
 
@@ -109,7 +114,7 @@ namespace SPIL
 						break;
 
 					case "DiamondMiner":
-						while (carryingGold == false)
+						while (carryingDiamond == false)
 						{
 							walkDir = GameWorld.DdiamondMine.position - position;
 							if (walkDir != Vector2.Zero)
@@ -119,7 +124,7 @@ namespace SPIL
 							position += walkDir;
 							Thread.Sleep((int)speed);
 						}
-						while (carryingGold == true)
+						while (carryingDiamond == true)
 						{
 							walkDir = GameWorld.Bwank.position - position;
 							if (walkDir != Vector2.Zero)
@@ -131,6 +136,8 @@ namespace SPIL
 						}
 						break;
 				}
+				UpdateCollisionBox();
+				Console.WriteLine("UpdateColl is a go");
 			}
 			Thread.Sleep(10);
 		}
@@ -138,18 +145,15 @@ namespace SPIL
 		{
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
-		}
-		public static bool CheckCollision(GameObject object1, GameObject object2)
+		}		
+		public override void OnCollision(GameObject otherObject)
 		{
-			if (object1.collisionBox.Intersects(object2.collisionBox))
-			{
-				object1.DebugIsColliding = true;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			
+		}
+		protected void UpdateCollisionBox()
+		{
+			collisionBox.X = (int)position.X;
+			collisionBox.Y = (int)position.Y;
 		}
 
 		public override void OnCollision(GameObject otherObject)

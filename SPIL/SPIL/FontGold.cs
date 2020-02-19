@@ -10,9 +10,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SPIL
 {
-    class FontGold : GameObject
+   public class FontGold : GameObject
     {
-        public int goldCurrency = 0;
+        public int goldCurrency = 10;
         public FontGold()
         {
             Thread fontThread = new Thread(fontMethod);

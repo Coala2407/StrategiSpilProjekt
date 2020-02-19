@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SPIL
 {
-    class FontDiamond : GameObject
+    public class FontDiamond : GameObject
     {
         public int diamondCurrency = 0;
         SpriteFont spriteFont;
