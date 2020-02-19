@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-    class Bank : GameObject
+    public class Bank : GameObject
     {
         private int coalCurrency = 0;
         private int goldCurrency = 0;

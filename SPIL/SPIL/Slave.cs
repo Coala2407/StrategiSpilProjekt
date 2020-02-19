@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-	class Slave
+	public class Slave
 	{
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
@@ -61,10 +61,7 @@ namespace SPIL
 
 			}
 		}
-		public void LoadContent()
-		{
-
-		}
+		
 		private void CollectorAI()
 		{
 			bool isDead = false;
@@ -75,8 +72,15 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
+							velocity += new Vector2( , 0);
+							Thread.Sleep(10);
+							
+						}
+						while (carryingCoal == true)
+						{
 							velocity += new Vector2((float)1, 0);
-								
+							Thread.Sleep(10);
+
 						}
 						break;
 
