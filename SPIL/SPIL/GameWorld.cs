@@ -174,6 +174,9 @@ namespace SPIL
             foreach (GameObject go in GameObjectList)
             {
                 go.Draw(spriteBatch);
+#if DEBUG
+                DrawCollisionBox(go);
+#endif
             }
 
             spriteBatch.End();
