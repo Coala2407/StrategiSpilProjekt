@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 
 namespace SPIL
 {
-    class DiamondMine : GameObject
+    public class DiamondMine : GameObject
     {
         int amount = 100;
 
