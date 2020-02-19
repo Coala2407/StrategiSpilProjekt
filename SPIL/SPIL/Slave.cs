@@ -9,16 +9,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-	public class Slave
+	public class Slave : GameObject
 	{
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
 		protected Texture2D currentSprite;
 		public bool setToIdle = true;
 		protected float animTime;
-		public float speed = 0.00001f;
-		private int spriteIndex;		
-		protected Vector2 position;
+		public float speed = 10f;
+				
+		
 
 		protected int Coal;
 		protected int carriedCoal;
@@ -33,6 +33,7 @@ namespace SPIL
 		protected bool carryingDiamond;
 
 		protected Vector2 velocity;
+		protected Vector2 walkDir;
 		protected string name;
 		
 
@@ -40,10 +41,10 @@ namespace SPIL
 		{
 			this.position = position;
 			this.name = name;
+			sprite = Assets.SlaveSprite;
 			 
-			//sprite = Assets.PirateWalkU[spriteIndex];
-
 			Thread collectorAI = new Thread(CollectorAI);
+            collectorAI.IsBackground = true;
 			collectorAI.Start();
 		}
 
@@ -53,16 +54,8 @@ namespace SPIL
 			Move(gameTime);
 
 		}
-
-		public void OnCollision(GameObject otherObject)
-		{
-			if (true)
-			{
-
-			}
-		}
-		
-		private void CollectorAI()
+	
+		public void CollectorAI()
 		{
 			bool isDead = false;
 			while (isDead == false)
@@ -72,15 +65,23 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
-							velocity += new Vector2( 0, 0);
-							Thread.Sleep(10);
-							
+							walkDir = GameWorld.CcoalMine.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;						
+							Thread.Sleep((int)speed);							
 						}
 						while (carryingCoal == true)
 						{
-							velocity += new Vector2((float)1, 0);
-							Thread.Sleep(10);
-
+							walkDir = GameWorld.Bwank.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
 						}
 						break;
 
@@ -117,7 +118,6 @@ namespace SPIL
 			{
 				return false;
 			}
-
 		}
-	}
+    }
 }

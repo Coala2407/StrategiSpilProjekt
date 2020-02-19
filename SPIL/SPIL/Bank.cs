@@ -10,7 +10,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace SPIL
 {
     public class Bank : GameObject
-    {
+
+    {		
 
         public Bank()
         {

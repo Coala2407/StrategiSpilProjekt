@@ -3,9 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace SPIL
 {
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -58,20 +60,25 @@ namespace SPIL
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-
-        protected override void LoadContent()
+		/// <summary>
+		/// LoadContent will be called once per game and is the place to load
+		/// all of your content.
+		/// </summary>
+		public static Bank Bwank;
+		public static CoalMine CcoalMine;
+		
+		protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.LoadContent(Content);
 
+
+			Bwank = new Bank();
+			CcoalMine = new CoalMine();
             //Load shit right here boi:
-            GameObjectList.Add(new Bank());
-            GameObjectList.Add(new CoalMine());
+			GameObjectList.Add(Bwank);
+            GameObjectList.Add(CcoalMine);
             GameObjectList.Add(new Coal());
             GameObjectList.Add(new GoldMine());
             GameObjectList.Add(new Gold());
@@ -81,6 +88,7 @@ namespace SPIL
             GameObjectList.Add(new FontGold());
             GameObjectList.Add(new FontDiamond());
             GameObjectList.Add(new FontCreateSlave());
+			GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
 
             // TODO: use this.Content to load your game content here
         }
@@ -105,12 +113,18 @@ namespace SPIL
                 Exit();
             // TODO: Add your update logic here
             //Spawn units
-            Keyboard.GetState();
-            if (Keyboard.HasBeenPressed(Keys.NumPad1))
+            if (Keyboard.HasBeenPressed(Keys.D1))
             {
-                Exit();
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
             }
-
+            if (Keyboard.HasBeenPressed(Keys.D2))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+            }
+            if (Keyboard.HasBeenPressed(Keys.D3))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
+            }
             base.Update(gameTime);
         }
 
@@ -132,4 +146,5 @@ namespace SPIL
             spriteBatch.End();
         }
     }
+
 }
