@@ -122,7 +122,15 @@ namespace SPIL
             //Spawn units
             if (Keyboard.HasBeenPressed(Keys.D1))
             {
-                GameObjectList.Add(new Slave(new Vector2(0,0), "GoldMiner"));
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+            }
+            if (Keyboard.HasBeenPressed(Keys.D2))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+            }
+            if (Keyboard.HasBeenPressed(Keys.D3))
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
             }
             base.Update(gameTime);
         }

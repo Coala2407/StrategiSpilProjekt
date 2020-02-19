@@ -12,7 +12,7 @@ namespace SPIL
 {
     class FontCoal : GameObject
     {
-        public int coalCurrency = 0;
+        public int coalCurrency = 1;
         public FontCoal()
         {
             Thread fontThread = new Thread(fontMethod);
