@@ -60,6 +60,7 @@ namespace SPIL
 
             //Load shit right here boi:
             GameObjectList.Add(new Bank());
+            
 
 
             // TODO: use this.Content to load your game content here

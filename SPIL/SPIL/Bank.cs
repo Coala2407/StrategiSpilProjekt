@@ -10,9 +10,6 @@ namespace SPIL
 {
     class Bank : GameObject
     {
-        private int coalCurrency = 0;
-        private int goldCurrency = 0;
-        private int diamondCurrency = 0;
 
         public Bank()
         {
