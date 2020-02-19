@@ -72,7 +72,7 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
-							velocity += new Vector2( , 0);
+							//velocity += new Vector2( , 0);
 							Thread.Sleep(10);
 							
 						}
