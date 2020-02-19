@@ -39,6 +39,11 @@ namespace SPIL
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Assets.LoadContent(Content);
+
+            //Load shit right here boi:
+            
+
 
             // TODO: use this.Content to load your game content here
         }
