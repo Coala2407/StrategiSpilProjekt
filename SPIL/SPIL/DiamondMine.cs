@@ -12,6 +12,21 @@ namespace SPIL
 {
     class DiamondMine : GameObject
     {
+        int amount = 1000;
+
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                amount = value;
+                if (amount < 0)
+                {
+                    amount = 0;
+                }
+            }
+        }
+
         public override void OnCollision(GameObject otherObject)
         {
 
@@ -26,7 +41,11 @@ namespace SPIL
         }
         private void DiamondMineMethod()
         {
-            //do something
+            while (true)
+            {
+                Thread.Sleep(500);
+                amount += 10;
+            }
         }
     }
 }
