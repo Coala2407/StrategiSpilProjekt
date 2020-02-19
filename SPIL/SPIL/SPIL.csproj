@@ -46,11 +46,16 @@
     <Compile Include="Coal.cs" />
     <Compile Include="Diamond.cs" />
     <Compile Include="DiamondMine.cs" />
+    <Compile Include="FontCoal.cs" />
+    <Compile Include="FontCreateSlave.cs" />
+    <Compile Include="FontDiamond.cs" />
+    <Compile Include="FontGold.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="Gold.cs" />
     <Compile Include="CoalMine.cs" />
     <Compile Include="GoldMine.cs" />
+    <Compile Include="Keyboard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slave.cs" />

@@ -21,7 +21,7 @@ namespace SPIL
             diamondThread.Start();
             sprite = Assets.DiamondCurrency;
             size = 0.1f;
-            position = new Vector2(800, 10);
+            position = new Vector2(800, 135); 
         }
         private void DiamondMethod()
         {

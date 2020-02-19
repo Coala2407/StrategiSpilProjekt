@@ -46,6 +46,7 @@ namespace SPIL
 			
 
 			Thread collectorAI = new Thread(CollectorAI);
+            collectorAI.IsBackground = true;
 			collectorAI.Start();
 		}
 
@@ -55,6 +56,7 @@ namespace SPIL
 			Move(gameTime);
 
 		}
+
 
 		public override void OnCollision(GameObject otherObject)
 		{
@@ -82,8 +84,7 @@ namespace SPIL
 								walkDir.Normalize();
 							}
 							position += walkDir;						
-							Thread.Sleep((int)speed);
-							
+							Thread.Sleep((int)speed);							
 						}
 						while (carryingCoal == true)
 						{
@@ -128,5 +129,10 @@ namespace SPIL
 			}
 
 		}
-	}
+
+        public override void OnCollision(GameObject otherObject)
+        {
+            
+        }
+    }
 }
