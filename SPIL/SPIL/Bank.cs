@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
@@ -17,8 +18,11 @@ namespace SPIL
         public Bank()
         {
             Thread bankThread = new Thread(RunBank);
+            bankThread.IsBackground = true;
             bankThread.Start();
             sprite = Assets.BankSprite;
+            size = .12f;
+            position.Y = GameWorld.WindowHeight / 2 - 50;
         }
 
         private void RunBank()
