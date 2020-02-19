@@ -13,6 +13,10 @@ namespace SPIL
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        //World size
+        public const int WindowWidth = 960;
+        public const int WindowHeight = 540;
+
         //All game objects. Used to draw
         public static List<GameObject> GameObjectList = new List<GameObject>();
         //To add and remove objects in runtime
@@ -44,6 +48,11 @@ namespace SPIL
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            //Screen setup
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
+            this.IsMouseVisible = true;
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -52,6 +61,7 @@ namespace SPIL
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
+
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -89,7 +99,6 @@ namespace SPIL
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             // TODO: Add your update logic here
 
             base.Update(gameTime);
