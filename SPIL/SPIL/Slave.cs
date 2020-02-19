@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-	class Slave : GameObject
+	class Slave
 	{
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
@@ -21,6 +21,7 @@ namespace SPIL
 		protected int doubloon;
 		protected int carriedDoubloons;
 		protected bool carryingDoubloons;
+		protected Vector2 position;
 
 		protected int salvage;
 		protected int carriedSalvage;
@@ -34,13 +35,13 @@ namespace SPIL
 			this.position = position;
 			this.name = name;
 			size = 1;
-			sprite = Assets.PirateWalkU[spriteIndex];
+			//sprite = Assets.PirateWalkU[spriteIndex];
 
 			Thread collectorAI = new Thread(CollectorAI);
 			collectorAI.Start();
 		}
 
-		public override void Update(GameTime gameTime)
+		public void Update(GameTime gameTime)
 		{
 
 			Move(gameTime);
@@ -64,6 +65,7 @@ namespace SPIL
 							velocity += new Vector2((float)1, 0);
 						}
 						break;
+
 					case "Salvager":
 						while (carryingSalvage == false)
 						{
