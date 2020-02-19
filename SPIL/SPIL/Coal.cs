@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    class Coal
+    class Coal : GameObject
     {
+        public override void OnCollision(GameObject otherObject)
+        {
+
+        }
     }
 }
