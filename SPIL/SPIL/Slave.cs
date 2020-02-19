@@ -17,15 +17,20 @@ namespace SPIL
 		public bool setToIdle = true;
 		protected float animTime;
 		public float speed = 0.00001f;
-		private int spriteIndex;
-		protected int doubloon;
-		protected int carriedDoubloons;
-		protected bool carryingDoubloons;
+		private int spriteIndex;		
 		protected Vector2 position;
 
-		protected int salvage;
-		protected int carriedSalvage;
-		protected bool carryingSalvage;
+		protected int Coal;
+		protected int carriedCoal;
+		protected bool carryingCoal;
+
+		protected int Gold;
+		protected int carriedGold;
+		protected bool carryingGold;
+
+		protected int Diamond;
+		protected int carriedDiamond;
+		protected bool carryingDiamond;
 
 		protected Vector2 velocity;
 		protected string name;
@@ -34,7 +39,7 @@ namespace SPIL
 		{
 			this.position = position;
 			this.name = name;
-			size = 1;
+			 
 			//sprite = Assets.PirateWalkU[spriteIndex];
 
 			Thread collectorAI = new Thread(CollectorAI);
@@ -48,9 +53,12 @@ namespace SPIL
 
 		}
 
-		public override void OnCollision(GameObject otherObject)
+		public void OnCollision(GameObject otherObject)
 		{
+			if (true)
+			{
 
+			}
 		}
 		private void CollectorAI()
 		{
@@ -59,15 +67,23 @@ namespace SPIL
 			{
 				switch (name)
 				{
-					case "collector":
-						while (carryingDoubloons == false)
+					case "CoalMiner":
+						while (carryingCoal == false)
+						{
+							velocity += new Vector2((float)1, 0);
+								
+						}
+						break;
+
+					case "GoldMiner":
+						while (carryingGold == false)
 						{
 							velocity += new Vector2((float)1, 0);
 						}
 						break;
 
-					case "Salvager":
-						while (carryingSalvage == false)
+					case "DiamondMiner":
+						while (carryingDiamond == false)
 						{
 							velocity += new Vector2((float)1, 0);
 						}
