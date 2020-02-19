@@ -55,6 +55,7 @@
     <Compile Include="Gold.cs" />
     <Compile Include="CoalMine.cs" />
     <Compile Include="GoldMine.cs" />
+    <Compile Include="Keyboard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slave.cs" />

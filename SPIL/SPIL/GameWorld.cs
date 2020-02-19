@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace SPIL
@@ -103,6 +104,12 @@ namespace SPIL
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             // TODO: Add your update logic here
+            //Spawn units
+            Keyboard.GetState();
+            if (Keyboard.HasBeenPressed(Keys.NumPad1))
+            {
+                Exit();
+            }
 
             base.Update(gameTime);
         }
@@ -121,8 +128,6 @@ namespace SPIL
             {
                 go.Draw(spriteBatch);
             }
-
-
 
             spriteBatch.End();
         }
