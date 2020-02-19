@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 
 namespace SPIL
 {
-    class CoalMine : GameObject
+    public class CoalMine : GameObject
     {
         public override void OnCollision(GameObject otherObject)
         {

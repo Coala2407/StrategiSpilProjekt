@@ -77,8 +77,7 @@ namespace SPIL
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
-
-							walkDir = GameWorld.Bwank.position - position;
+							walkDir = GameWorld.CcoalMine.position - position;
 							if (walkDir != Vector2.Zero)
 							{
 								walkDir.Normalize();
@@ -88,9 +87,13 @@ namespace SPIL
 						}
 						while (carryingCoal == true)
 						{
-							velocity += new Vector2((float)1, 0);
-							Thread.Sleep(10);
-
+							walkDir = GameWorld.Bwank.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
 						}
 						break;
 
@@ -127,12 +130,6 @@ namespace SPIL
 			{
 				return false;
 			}
-
 		}
-
-        public override void OnCollision(GameObject otherObject)
-        {
-            
-        }
     }
 }
