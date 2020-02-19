@@ -51,6 +51,7 @@ namespace SPIL
             //Screen setup
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
+            this.IsMouseVisible = true;
             graphics.ApplyChanges();
 
             base.Initialize();
