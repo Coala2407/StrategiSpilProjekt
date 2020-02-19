@@ -41,11 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Diamant.cs" />
+    <Compile Include="Assets.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="Coal.cs" />
+    <Compile Include="Diamond.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
-    <Compile Include="Guld.cs" />
-    <Compile Include="Kul.cs" />
+    <Compile Include="Gold.cs" />
     <Compile Include="Mine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
