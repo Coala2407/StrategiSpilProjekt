@@ -105,7 +105,6 @@ namespace SPIL
             }
 
             spriteBatch.End();
-            base.Draw(gameTime);
         }
     }
 }

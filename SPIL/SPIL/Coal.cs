@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    class Kul
+    class Coal
     {
     }
 }

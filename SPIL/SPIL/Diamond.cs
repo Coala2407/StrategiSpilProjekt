@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPIL
 {
-    class Diamant
+    class Diamond
     {
     }
 }
