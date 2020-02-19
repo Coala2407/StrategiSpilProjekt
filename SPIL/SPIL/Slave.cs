@@ -74,6 +74,7 @@ namespace SPIL
                             //{
                             //    Thread.Sleep(100);
                             //    GameWorld.fontCoal.coalCurrency++;
+							//    carryingCoal = true;
                             //}
 						}
 						while (carryingCoal == true)
@@ -85,6 +86,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+							carryingCoal = false;
 						}
 						break;
 
@@ -134,6 +136,8 @@ namespace SPIL
 						}
 						break;
 				}
+				UpdateCollisionBox();
+				Console.WriteLine("UpdateColl is a go");
 			}
 			Thread.Sleep(10);
 		}
@@ -141,22 +145,15 @@ namespace SPIL
 		{
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
-		}
-		public static bool CheckCollision(GameObject object1, GameObject object2)
-		{
-			if (object1.collisionBox.Intersects(object2.collisionBox))
-			{
-				object1.DebugIsColliding = true;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+		}		
 		public override void OnCollision(GameObject otherObject)
 		{
 			
+		}
+		protected void UpdateCollisionBox()
+		{
+			collisionBox.X = (int)position.X;
+			collisionBox.Y = (int)position.Y;
 		}
 	}
 }
