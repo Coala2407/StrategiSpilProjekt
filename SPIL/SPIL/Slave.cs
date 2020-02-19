@@ -69,7 +69,12 @@ namespace SPIL
 								walkDir.Normalize();
 							}
 							position += walkDir;						
-							Thread.Sleep((int)speed);							
+							Thread.Sleep((int)speed);
+                            //if (position.X > GameWorld.CcoalMine.position.X)
+                            //{
+                            //    Thread.Sleep(100);
+                            //    GameWorld.fontCoal.coalCurrency++;
+                            //}
 						}
 						while (carryingCoal == true)
 						{
@@ -107,7 +112,7 @@ namespace SPIL
 						break;
 
 					case "DiamondMiner":
-						while (carryingGold == false)
+						while (carryingDiamond == false)
 						{
 							walkDir = GameWorld.DdiamondMine.position - position;
 							if (walkDir != Vector2.Zero)
@@ -117,7 +122,7 @@ namespace SPIL
 							position += walkDir;
 							Thread.Sleep((int)speed);
 						}
-						while (carryingGold == true)
+						while (carryingDiamond == true)
 						{
 							walkDir = GameWorld.Bwank.position - position;
 							if (walkDir != Vector2.Zero)

@@ -37,6 +37,24 @@ namespace SPIL
             RemoveGameObjects.Add(gameObject);
         }
 
+        //Debug hitboxes
+#if DEBUG
+        Texture2D collisionTexture;
+        private void DrawCollisionBox(GameObject go)
+        {
+            Rectangle collisionBox = go.GetCollisionBox();
+            Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
+            Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
+            Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
+            Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
+
+            spriteBatch.Draw(collisionTexture, topLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(collisionTexture, bottomLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(collisionTexture, leftLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(collisionTexture, rightLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+        }
+#endif
+
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -72,6 +90,7 @@ namespace SPIL
         public static FontCoal fontCoal;
         public static FontDiamond fontDiamond;
         public static FontGold fontGold;
+
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -104,6 +123,7 @@ namespace SPIL
 			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
 
             // TODO: use this.Content to load your game content here
+            //Load Debug hitbox
         }
 
         /// <summary>
@@ -164,7 +184,7 @@ namespace SPIL
         {
             if (fontCoal.coalCurrency >= 1)
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+                GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
                 fontCoal.coalCurrency -= 1;
             }
         }
@@ -173,7 +193,7 @@ namespace SPIL
         {
             if (fontCoal.coalCurrency >= 5)
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+                GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
                 fontCoal.coalCurrency -= 5;
             }
         }
@@ -182,7 +202,7 @@ namespace SPIL
         {
             if (fontGold.goldCurrency >= 10)
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
+                GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
                 fontGold.goldCurrency -= 10;
             }
         }

@@ -18,6 +18,7 @@ namespace SPIL
         public static Texture2D GoldCurrency;
         public static Texture2D DiamondMine;
         public static Texture2D DiamondCurrency;
+        public static Texture2D collisionTexture;
 
         public static SpriteFont font;
         
@@ -32,6 +33,9 @@ namespace SPIL
             GoldCurrency = content.Load<Texture2D>("gold currency");
             DiamondCurrency = content.Load<Texture2D>("diamond currency");
             font = content.Load<SpriteFont>("File");
+#if DEBUG
+            collisionTexture = content.Load<Texture2D>("whitepixel");
+#endif
         }
     }
 }
