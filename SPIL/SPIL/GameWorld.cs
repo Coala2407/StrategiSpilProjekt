@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace SPIL
 {
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -69,9 +70,11 @@ namespace SPIL
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.LoadContent(Content);
+			Bwank = new Bank();
 
+			GameObjectList.Add(Bwank);
             //Load shit right here boi:
-            GameObjectList.Add(new Bank());
+			GameObjectList.Add(Bwank);
             GameObjectList.Add(new CoalMine());
             GameObjectList.Add(new Coal());
             GameObjectList.Add(new GoldMine());
@@ -82,6 +85,7 @@ namespace SPIL
             GameObjectList.Add(new FontGold());
             GameObjectList.Add(new FontDiamond());
             GameObjectList.Add(new FontCreateSlave());
+			GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
 
             // TODO: use this.Content to load your game content here
         }
@@ -131,4 +135,5 @@ namespace SPIL
             spriteBatch.End();
         }
     }
+
 }
