@@ -69,6 +69,12 @@ namespace SPIL
 
             //Load shit right here boi:
             GameObjectList.Add(new Bank());
+            GameObjectList.Add(new CoalMine());
+            GameObjectList.Add(new Coal());
+            GameObjectList.Add(new GoldMine());
+            GameObjectList.Add(new Gold());
+            GameObjectList.Add(new DiamondMine());
+            GameObjectList.Add(new Diamond());
 
 
             // TODO: use this.Content to load your game content here
@@ -111,6 +117,8 @@ namespace SPIL
             {
                 go.Draw(spriteBatch);
             }
+
+
 
             spriteBatch.End();
         }
