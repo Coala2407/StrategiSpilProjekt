@@ -64,17 +64,17 @@ namespace SPIL
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
-
+        public static Bank Bwank;
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.LoadContent(Content);
-			Bwank = new Bank();
 
-			GameObjectList.Add(Bwank);
+
+            Bwank = new Bank();
             //Load shit right here boi:
-			GameObjectList.Add(Bwank);
+			GameObjectList.Add(new Bank());
             GameObjectList.Add(new CoalMine());
             GameObjectList.Add(new Coal());
             GameObjectList.Add(new GoldMine());

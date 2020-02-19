@@ -130,9 +130,6 @@ namespace SPIL
 
 		}
 
-        public override void OnCollision(GameObject otherObject)
-        {
-            
-        }
+       
     }
 }
