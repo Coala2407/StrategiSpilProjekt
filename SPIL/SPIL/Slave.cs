@@ -18,8 +18,6 @@ namespace SPIL
 		protected float animTime;
 		public float speed = 10f;
 				
-		
-
 		protected int Coal;
 		protected int carriedCoal;
 		protected bool carryingCoal;
@@ -151,6 +149,10 @@ namespace SPIL
 				return false;
 			}
 		}
-		
+
+        public override void OnCollision(GameObject otherObject)
+        {
+           
+        }
     }
 }

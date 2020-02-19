@@ -60,45 +60,50 @@ namespace SPIL
             base.Initialize();
         }
 
-		/// <summary>
-		/// LoadContent will be called once per game and is the place to load
-		/// all of your content.
-		/// </summary>
-		public static Bank Bwank;
-		public static CoalMine CcoalMine;
-		public static GoldMine GgoldMine;
-		public static DiamondMine DdiamondMine;
-
-		protected override void LoadContent()
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        public static Bank Bwank;
+        public static CoalMine CcoalMine;
+        public static GoldMine GgoldMine;
+        public static DiamondMine DdiamondMine;
+        public static FontCoal fontCoal;
+        public static FontDiamond fontDiamond;
+        public static FontGold fontGold;
+        protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.LoadContent(Content);
 
 
-			Bwank = new Bank();
-			CcoalMine = new CoalMine();
-			GgoldMine = new GoldMine();
-			DdiamondMine = new DiamondMine();
+            Bwank = new Bank();
+            CcoalMine = new CoalMine();
+            GgoldMine = new GoldMine();
+            DdiamondMine = new DiamondMine();
+            fontCoal = new FontCoal();
+            fontDiamond = new FontDiamond();
+            fontGold = new FontGold();
             //Load shit right here boi:
-			GameObjectList.Add(Bwank);
+            GameObjectList.Add(Bwank);
             GameObjectList.Add(CcoalMine);
             GameObjectList.Add(new Coal());
             GameObjectList.Add(GgoldMine);
             GameObjectList.Add(new Gold());
             GameObjectList.Add(DdiamondMine);
             GameObjectList.Add(new Diamond());
-            GameObjectList.Add(new FontCoal());
-            GameObjectList.Add(new FontGold());
-            GameObjectList.Add(new FontDiamond());
+            GameObjectList.Add(fontCoal);
+            GameObjectList.Add(fontGold);
+            GameObjectList.Add(fontDiamond);
             GameObjectList.Add(new FontCreateSlave());
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "CoalMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "GoldMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "DiamondMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 300), "DiamondMiner"));
+            GameObjectList.Add(new Slave(new Vector2(480, 270), "CoalMiner"));
+            GameObjectList.Add(new Slave(new Vector2(480, 270), "GoldMiner"));
+            GameObjectList.Add(new Slave(new Vector2(480, 270), "DiamondMiner"));
+            GameObjectList.Add(new Slave(new Vector2(480, 300), "DiamondMiner"));
 
-			// TODO: use this.Content to load your game content here
-		}
+            // TODO: use this.Content to load your game content here
+        }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -122,15 +127,15 @@ namespace SPIL
             //Spawn units
             if (Keyboard.HasBeenPressed(Keys.D1))
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+                SpawnCoalMiner();
             }
             if (Keyboard.HasBeenPressed(Keys.D2))
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+                SpawnGoldMiner();
             }
             if (Keyboard.HasBeenPressed(Keys.D3))
             {
-                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
+                SpawnDiamondMiner();
             }
             base.Update(gameTime);
         }
@@ -151,6 +156,34 @@ namespace SPIL
             }
 
             spriteBatch.End();
+        }
+
+        // Spawn units
+        public void SpawnCoalMiner()
+        {
+            if (fontCoal.coalCurrency >= 1)
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+                fontCoal.coalCurrency -= 1;
+            }
+        }
+
+        public void SpawnGoldMiner()
+        {
+            if (fontCoal.coalCurrency >= 5)
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "GoldMiner"));
+                fontCoal.coalCurrency -= 5;
+            }
+        }
+
+        public void SpawnDiamondMiner()
+        {
+            if (fontGold.goldCurrency >= 10)
+            {
+                GameObjectList.Add(new Slave(new Vector2(900, 500), "DiamondMiner"));
+                fontGold.goldCurrency -= 10;
+            }
         }
     }
 

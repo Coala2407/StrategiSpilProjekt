@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SPIL
 {
-    class FontCoal : GameObject
+   public class FontCoal : GameObject
     {
         public int coalCurrency = 1;
         public FontCoal()
