@@ -8,20 +8,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-    class Coal : GameObject
+    class GoldMine : GameObject
     {
         public override void OnCollision(GameObject otherObject)
         {
 
         }
-        public Coal()
+        public GoldMine()
         {
-            Thread coalThread = new Thread(CoalMethod);
-            coalThread.Start();
-            sprite = Assets.CoalCurrency;
+            Thread goldMineThread = new Thread(GoldMineMethod);
+            goldMineThread.Start();
+            sprite = Assets.GoldMine;
         }
-
-        private void CoalMethod()
+        private void GoldMineMethod()
         {
             //do something
         }
