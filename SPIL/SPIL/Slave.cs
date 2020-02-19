@@ -149,10 +149,9 @@ namespace SPIL
 				return false;
 			}
 		}
-
-        public override void OnCollision(GameObject otherObject)
-        {
-           
-        }
-    }
+		public override void OnCollision(GameObject otherObject)
+		{
+			
+		}
+	}
 }
