@@ -13,13 +13,10 @@ namespace SPIL
     class FontCoal : GameObject
     {
         public int coalCurrency = 0;
-        SpriteFont spriteFont;
         public FontCoal()
         {
             Thread fontThread = new Thread(fontMethod);
-            fontThread.Start();
-            font = Assets.font;
-            position = new Vector2(900, 50);
+            fontThread.Start();            
         }
         private void fontMethod()
         {
