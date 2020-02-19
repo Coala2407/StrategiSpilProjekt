@@ -151,6 +151,11 @@ namespace SPIL
 				return false;
 			}
 		}
-		
-    }
+
+		public override void OnCollision(GameObject otherObject)
+		{
+			throw new NotImplementedException();
+		}
+
+	}
 }
