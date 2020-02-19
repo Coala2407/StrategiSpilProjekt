@@ -10,7 +10,7 @@ namespace SPIL
 {
     public abstract class GameObject
     {
-        protected Vector2 position;
+        public Vector2 position;
 
         protected float drawLayer = 0.01f;
 
@@ -31,6 +31,8 @@ namespace SPIL
 		public Rectangle collisionBox;
 
 		public bool DebugIsColliding;
+
+		
 
 		/// <summary>
 		/// Runs on collision with other objects
