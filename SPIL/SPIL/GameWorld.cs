@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace SPIL
 {
@@ -105,12 +106,10 @@ namespace SPIL
                 Exit();
             // TODO: Add your update logic here
             //Spawn units
-            Keyboard.GetState();
-            if (Keyboard.HasBeenPressed(Keys.NumPad1))
+            if (Keyboard.HasBeenPressed(Keys.D1))
             {
-                Exit();
+                GameObjectList.Add(new Slave(new Vector2(0,0), "GoldMiner"));
             }
-
             base.Update(gameTime);
         }
 

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SPIL
 {
-	public class Slave
+	public class Slave : GameObject
 	{
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
@@ -44,6 +44,7 @@ namespace SPIL
 			//sprite = Assets.PirateWalkU[spriteIndex];
 
 			Thread collectorAI = new Thread(CollectorAI);
+            collectorAI.IsBackground = true;
 			collectorAI.Start();
 		}
 
@@ -52,14 +53,6 @@ namespace SPIL
 
 			Move(gameTime);
 
-		}
-
-		public void OnCollision(GameObject otherObject)
-		{
-			if (true)
-			{
-
-			}
 		}
 		
 		private void CollectorAI()
@@ -119,5 +112,10 @@ namespace SPIL
 			}
 
 		}
-	}
+
+        public override void OnCollision(GameObject otherObject)
+        {
+            
+        }
+    }
 }
