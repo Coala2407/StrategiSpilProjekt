@@ -66,7 +66,9 @@ namespace SPIL
 		/// </summary>
 		public static Bank Bwank;
 		public static CoalMine CcoalMine;
-		
+		public static GoldMine GgoldMine;
+		public static DiamondMine DdiamondMine;
+
 		protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -76,22 +78,27 @@ namespace SPIL
 
 			Bwank = new Bank();
 			CcoalMine = new CoalMine();
+			GgoldMine = new GoldMine();
+			DdiamondMine = new DiamondMine();
             //Load shit right here boi:
 			GameObjectList.Add(Bwank);
             GameObjectList.Add(CcoalMine);
             GameObjectList.Add(new Coal());
-            GameObjectList.Add(new GoldMine());
+            GameObjectList.Add(GgoldMine);
             GameObjectList.Add(new Gold());
-            GameObjectList.Add(new DiamondMine());
+            GameObjectList.Add(DdiamondMine);
             GameObjectList.Add(new Diamond());
             GameObjectList.Add(new FontCoal());
             GameObjectList.Add(new FontGold());
             GameObjectList.Add(new FontDiamond());
             GameObjectList.Add(new FontCreateSlave());
-			GameObjectList.Add(new Slave(new Vector2(900, 500), "CoalMiner"));
+			GameObjectList.Add(new Slave(new Vector2(480, 270), "CoalMiner"));
+			GameObjectList.Add(new Slave(new Vector2(480, 270), "GoldMiner"));
+			GameObjectList.Add(new Slave(new Vector2(480, 270), "DiamondMiner"));
+			GameObjectList.Add(new Slave(new Vector2(480, 300), "DiamondMiner"));
 
-            // TODO: use this.Content to load your game content here
-        }
+			// TODO: use this.Content to load your game content here
+		}
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload

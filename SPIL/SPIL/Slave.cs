@@ -100,14 +100,46 @@ namespace SPIL
 					case "GoldMiner":
 						while (carryingGold == false)
 						{
-							velocity += new Vector2((float)1, 0);
+							walkDir = GameWorld.GgoldMine.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
+						}
+						while (carryingGold == true)
+						{
+							walkDir = GameWorld.Bwank.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
 						}
 						break;
 
 					case "DiamondMiner":
-						while (carryingDiamond == false)
+						while (carryingGold == false)
 						{
-							velocity += new Vector2((float)1, 0);
+							walkDir = GameWorld.DdiamondMine.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
+						}
+						while (carryingGold == true)
+						{
+							walkDir = GameWorld.Bwank.position - position;
+							if (walkDir != Vector2.Zero)
+							{
+								walkDir.Normalize();
+							}
+							position += walkDir;
+							Thread.Sleep((int)speed);
 						}
 						break;
 				}
@@ -131,5 +163,6 @@ namespace SPIL
 				return false;
 			}
 		}
+		
     }
 }
