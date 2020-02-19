@@ -13,6 +13,7 @@ namespace SPIL
     /// </summary>
     public class GameWorld : Game
     {
+        Vector2 spawnPoint = new Vector2(45, (540 / 2 + 28));
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -92,10 +93,10 @@ namespace SPIL
             GameObjectList.Add(new FontGold());
             GameObjectList.Add(new FontDiamond());
             GameObjectList.Add(new FontCreateSlave());
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "CoalMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "GoldMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 270), "DiamondMiner"));
-			GameObjectList.Add(new Slave(new Vector2(480, 300), "DiamondMiner"));
+			GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
+			GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
+			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
+			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
 
 			// TODO: use this.Content to load your game content here
 		}
