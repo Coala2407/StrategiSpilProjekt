@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+
 
 namespace SPIL
 {
@@ -19,6 +21,8 @@ namespace SPIL
             Thread goldMineThread = new Thread(GoldMineMethod);
             goldMineThread.Start();
             sprite = Assets.GoldMine;
+            size = 0.5f;
+            position = new Vector2(960 / 2 + 40, 540 / 2-20);
         }
         private void GoldMineMethod()
         {

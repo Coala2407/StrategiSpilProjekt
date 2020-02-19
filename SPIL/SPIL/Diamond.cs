@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace SPIL
 {
@@ -19,6 +20,8 @@ namespace SPIL
             Thread diamondThread = new Thread(DiamondMethod);
             diamondThread.Start();
             sprite = Assets.DiamondCurrency;
+            size = 0.1f;
+            position = new Vector2(800, 10);
         }
         private void DiamondMethod()
         {

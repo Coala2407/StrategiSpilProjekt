@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace SPIL
 {
@@ -19,6 +20,8 @@ namespace SPIL
             Thread goldThread = new Thread(GoldMethod);
             goldThread.Start();
             sprite = Assets.GoldCurrency;
+            size = 0.17f;
+            position = new Vector2(800, 75);
         }
         private void GoldMethod()
         {

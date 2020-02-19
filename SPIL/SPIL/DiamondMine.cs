@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+
 
 namespace SPIL
 {
@@ -19,6 +21,8 @@ namespace SPIL
             Thread diamondMineThread = new Thread(DiamondMineMethod);
             diamondMineThread.Start();
             sprite = Assets.DiamondMine;
+            size = 0.3f;
+            position = new Vector2(960 / 2 + 30,450);
         }
         private void DiamondMineMethod()
         {

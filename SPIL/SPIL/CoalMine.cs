@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+
 
 namespace SPIL
 {
@@ -19,6 +21,8 @@ namespace SPIL
             Thread coalMineThread = new Thread(coalMineMethod);
             coalMineThread.Start();
             sprite = Assets.CoalMine;
+            size = 0.2f;
+            position = new Vector2((960/2+50), 50);
         }
         private void coalMineMethod()
         {
