@@ -11,6 +11,9 @@ namespace SPIL
 
     class Bank
     {
+        private int coalCurrency = 0;
+        private int goldCurrency = 0;
+        private int diamondCurrency = 0;
         public event StartBanksHandler StartBanks;
         public event StartBanksHandler StartBank;
 
