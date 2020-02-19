@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AA6FD100-07FC-497C-8FCB-9822EFCEB178}</ProjectGuid>
+    <ProjectGuid>{E3AD12D6-55B1-4A73-A555-5930CA315E12}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SPIL</RootNamespace>
@@ -41,24 +41,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Arrow.cs" />
-    <Compile Include="Assets.cs" />
-    <Compile Include="Bank.cs" />
-    <Compile Include="Collector.cs" />
-    <Compile Include="Doubloon.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="GameWorld.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="Pointer.cs" />
+    <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scrap.cs" />
-    <Compile Include="Tile.cs" />
-    <Compile Include="Tower.cs" />
-    <Compile Include="UI.cs" />
-    <Compile Include="UIButton.cs" />
-    <Compile Include="Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -68,20 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\BlurredPlanks.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingDown1.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingDown2.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingDown3.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingRight1.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingRight2.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingRight3.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingUp1.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingUp2.png" />
-    <Content Include="Content\PirateWalkingAnims\PirateWalkingUp3.png" />
-    <Content Include="Content\TileTextures\grass_tile_1.png" />
-    <Content Include="Content\TileTextures\grass_tile_2.png" />
-    <Content Include="Content\TileTextures\grass_tile_3.png" />
-    <Content Include="Content\TileTextures\sand_tile.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
