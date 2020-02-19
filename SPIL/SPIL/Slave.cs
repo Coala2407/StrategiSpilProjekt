@@ -34,6 +34,7 @@ namespace SPIL
 
 		protected Vector2 velocity;
 		protected string name;
+		
 
 		public Slave(Vector2 position, string name)
 		{
@@ -59,6 +60,10 @@ namespace SPIL
 			{
 
 			}
+		}
+		public void LoadContent()
+		{
+
 		}
 		private void CollectorAI()
 		{
@@ -89,8 +94,6 @@ namespace SPIL
 						}
 						break;
 				}
-
-
 			}
 			Thread.Sleep(10);
 		}
@@ -99,6 +102,18 @@ namespace SPIL
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
 		}
+		public static bool CheckCollision(GameObject object1, GameObject object2)
+		{
+			if (object1.collisionBox.Intersects(object2.collisionBox))
+			{
+				object1.DebugIsColliding = true;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 
+		}
 	}
 }
