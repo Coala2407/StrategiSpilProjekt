@@ -18,8 +18,6 @@ namespace SPIL
 		protected float animTime;
 		public float speed = 10f;
 				
-		
-
 		protected int Coal;
 		protected int carriedCoal;
 		protected bool carryingCoal;
