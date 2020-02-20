@@ -184,27 +184,27 @@ namespace SPIL
         // Spawn units
         public void SpawnCoalMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
             if (fontCoal.coalCurrency >= 1)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
                 fontCoal.coalCurrency -= 1;
             }
         }
 
         public void SpawnGoldMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
             if (fontCoal.coalCurrency >= 5)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
                 fontCoal.coalCurrency -= 5;
             }
         }
 
         public void SpawnDiamondMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
             if (fontGold.goldCurrency >= 10)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
                 fontGold.goldCurrency -= 10;
             }
         }

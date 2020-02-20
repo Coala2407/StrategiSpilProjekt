@@ -156,11 +156,5 @@ namespace SPIL
 			collisionBox.X = (int)position.X;
 			collisionBox.Y = (int)position.Y;
 		}
-
-		public override void OnCollision(GameObject otherObject)
-		{
-			throw new NotImplementedException();
-		}
-
 	}
 }
