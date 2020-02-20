@@ -32,6 +32,7 @@ namespace SPIL
 
 		protected Vector2 velocity;
 		protected Vector2 walkDir;
+		protected Vector2 positionPreMove;
 		protected string name;
 		
 
@@ -52,6 +53,7 @@ namespace SPIL
 		{
 
 			Move(gameTime);
+
 
 		}
 	
@@ -151,6 +153,7 @@ namespace SPIL
 			position += ((velocity * speed) * deltaTime);
 			UpdateCollisionBox();
 		}		
+
 		public override void OnCollision(GameObject otherObject)
 		{
 			Console.WriteLine("UpdateColl is a go");
