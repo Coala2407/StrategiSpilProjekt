@@ -12,7 +12,8 @@ namespace SPIL
 {
     public class DiamondMine : GameObject
     {
-        int amount = 100;
+		public static Semaphore collectorDiamondAccess = new Semaphore(0, 5);
+		int amount = 100;
 
         public int Amount
         {
@@ -36,6 +37,9 @@ namespace SPIL
             Thread diamondMineThread = new Thread(DiamondMineMethod);
             diamondMineThread.IsBackground = true;
             diamondMineThread.Start();
+
+			collectorDiamondAccess.Release(5);
+
             sprite = Assets.DiamondMine;
             position = new Vector2(970 / 2 + 40, 400);
         }
@@ -47,5 +51,16 @@ namespace SPIL
                 amount += 1;
             }
         }
+
+		public void CollectDiamond()
+		{
+			collectorDiamondAccess.WaitOne();
+			Thread.Sleep(10000);
+			amount -= 1;
+			GameWorld.Sslave.carriedDiamond += 1;
+			Console.WriteLine(amount);
+
+			collectorDiamondAccess.Release();
+		}
     }
 }

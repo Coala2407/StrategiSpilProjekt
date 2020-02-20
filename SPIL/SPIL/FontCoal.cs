@@ -12,11 +12,14 @@ namespace SPIL
 {
    public class FontCoal : GameObject
     {
-        public int coalCurrency = 1;
+		public static Semaphore depositCoalAccess = new Semaphore(0, 5);
+		public int coalCurrency = 1;
         public FontCoal()
         {
             Thread fontThread = new Thread(fontMethod);
-            fontThread.Start();            
+            fontThread.Start();
+
+			depositCoalAccess.Release(5);
         }
         private void fontMethod()
         {
@@ -31,5 +34,14 @@ namespace SPIL
             //base.Draw(spriteBatch);
             spriteBatch.DrawString(Assets.font, $"{coalCurrency}", new Vector2(875, 25), Color.Black);
         }
+
+		public void CoalDeposit()
+		{
+			depositCoalAccess.WaitOne();
+			Thread.Sleep(2500);
+			GameWorld.Sslave.carriedCoal -= 10;
+			coalCurrency += 10;
+			depositCoalAccess.Release();
+		}
     }
 }

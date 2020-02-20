@@ -12,7 +12,8 @@ namespace SPIL
 {
     public class GoldMine : GameObject
     {
-        int amount = 500;
+		public static Semaphore collectorGoldAccess = new Semaphore(0, 5);
+		int amount = 500;
 
         public int Amount
         {
@@ -36,6 +37,9 @@ namespace SPIL
             Thread goldMineThread = new Thread(GoldMineMethod);
             goldMineThread.IsBackground = true;
             goldMineThread.Start();
+
+			collectorGoldAccess.Release(5);
+
             sprite = Assets.GoldMine;
             position = new Vector2(970 / 2 + 40, 490 / 2-20);
         }
@@ -47,5 +51,16 @@ namespace SPIL
                 amount += 5;
             }
         }
+
+		public void CollectGold()
+		{
+			collectorGoldAccess.WaitOne();
+			Thread.Sleep(5000);
+			amount -= 5;
+			GameWorld.Sslave.carriedGold += 5;
+			Console.WriteLine(amount);
+
+			collectorGoldAccess.Release();
+		}
     }
 }
