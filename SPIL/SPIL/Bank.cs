@@ -19,7 +19,6 @@ namespace SPIL
             bankThread.IsBackground = true;
             bankThread.Start();
             sprite = Assets.BankSprite;
-            size = .12f;
             position.Y = GameWorld.WindowHeight / 2 - 50;
         }
 

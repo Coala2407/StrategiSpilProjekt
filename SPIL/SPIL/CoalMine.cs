@@ -36,8 +36,7 @@ namespace SPIL
             coalMineThread.IsBackground = true;
             coalMineThread.Start();
             sprite = Assets.CoalMine;
-            size = 0.2f;
-            position = new Vector2((960/2+50), 50);
+            position = new Vector2((960/2+50), 40);
         }
         private void coalMineMethod()
         {

@@ -20,7 +20,6 @@ namespace SPIL
             Thread goldThread = new Thread(GoldMethod);
             goldThread.Start();
             sprite = Assets.GoldCurrency;
-            size = 0.17f;
             position = new Vector2(800, 75);
         }
         private void GoldMethod()

@@ -20,7 +20,6 @@ namespace SPIL
             Thread diamondThread = new Thread(DiamondMethod);
             diamondThread.Start();
             sprite = Assets.DiamondCurrency;
-            size = 0.1f;
             position = new Vector2(800, 135); 
         }
         private void DiamondMethod()

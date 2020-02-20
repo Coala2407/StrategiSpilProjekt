@@ -37,8 +37,7 @@ namespace SPIL
             goldMineThread.IsBackground = true;
             goldMineThread.Start();
             sprite = Assets.GoldMine;
-            size = 0.5f;
-            position = new Vector2(960 / 2 + 40, 540 / 2-20);
+            position = new Vector2(970 / 2 + 40, 490 / 2-20);
         }
         private void GoldMineMethod()
         {
