@@ -90,6 +90,7 @@ namespace SPIL
         public static FontCoal fontCoal;
         public static FontDiamond fontDiamond;
         public static FontGold fontGold;
+		public static Slave Sslave;
 
         protected override void LoadContent()
         {
@@ -105,6 +106,7 @@ namespace SPIL
             fontCoal = new FontCoal();
             fontDiamond = new FontDiamond();
             fontGold = new FontGold();
+			Sslave = new Slave(spawnPoint, "CoalMiner");
             //Load shit right here boi:
             GameObjectList.Add(Bwank);
             GameObjectList.Add(CcoalMine);
@@ -117,7 +119,7 @@ namespace SPIL
             GameObjectList.Add(fontGold);
             GameObjectList.Add(fontDiamond);
             GameObjectList.Add(new FontCreateSlave());
-			GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
+			GameObjectList.Add(Sslave);
 			GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
 			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
 
@@ -157,7 +159,30 @@ namespace SPIL
             {
                 SpawnDiamondMiner();
             }
-            base.Update(gameTime);
+			{
+				//if (GameObject.Enabled == true)
+				//{
+				//	GameObject.Update();
+				//	foreach (GameObject otherGaneObject in GameObjectList)
+				//	{
+				//		//forhindre objects i allGameObjects i at kollidere med sig selv.
+				//		//if (GameObject != otherGaneObject)
+				//		//{
+				//		//	if (GameObject && (GameObject as DamageBox).ownerGameObject != otherGaneObject)
+				//		//	{
+				//		//		GameObject.CheckCollision(GameObject, otherGaneObject);
+				//		//	}
+				//		//	else if (otherGaneObject is DamageBox && (otherGaneObject as DamageBox).ownerGameObject != otherGaneObject)
+				//		//	{
+				//		//		GameObject.CheckCollision(GameObject, otherGaneObject);
+				//		//	}
+
+
+				//		//}
+				//	}
+				//}
+			}
+			base.Update(gameTime);
         }
 
         /// <summary>

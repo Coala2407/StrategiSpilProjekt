@@ -11,30 +11,33 @@ namespace SPIL
 {
 	public class Slave : GameObject
 	{
+
+
 		protected List<Texture2D> Currentspritesheet = new List<Texture2D>();
 
 		protected Texture2D currentSprite;
 		public bool setToIdle = true;
 		protected float animTime;
 		public float speed = 10f;
-				
+		public bool hasCollided = false;
+
 		protected int Coal;
-		protected int carriedCoal;
-		protected bool carryingCoal;
+		public int carriedCoal;
+		public bool carryingCoal;
 
 		protected int Gold;
-		protected int carriedGold;
-		protected bool carryingGold;
+		public int carriedGold;
+		public bool carryingGold;
 
 		protected int Diamond;
-		protected int carriedDiamond;
-		protected bool carryingDiamond;
+		public int carriedDiamond;
+		public bool carryingDiamond;
 
 		protected Vector2 velocity;
 		protected Vector2 walkDir;
 		protected Vector2 positionPreMove;
 		protected string name;
-		
+
 
 		public Slave(Vector2 position, string name)
 		{
@@ -42,10 +45,10 @@ namespace SPIL
 			this.name = name;
 			sprite = Assets.SlaveSprite;
 
-			collisionBox = new Rectangle(0,0, sprite.Width, sprite.Height);
-			 
+			collisionBox = new Rectangle(0, 0, sprite.Width, sprite.Height);
+
 			Thread collectorAI = new Thread(CollectorAI);
-            collectorAI.IsBackground = true;
+			collectorAI.IsBackground = true;
 			collectorAI.Start();
 		}
 
@@ -56,7 +59,7 @@ namespace SPIL
 
 
 		}
-	
+
 		public void CollectorAI()
 		{
 			bool isDead = false;
@@ -64,6 +67,7 @@ namespace SPIL
 			{
 				switch (name)
 				{
+
 					case "CoalMiner":
 						while (carryingCoal == false)
 						{
@@ -72,14 +76,10 @@ namespace SPIL
 							{
 								walkDir.Normalize();
 							}
-							position += walkDir;						
+							position += walkDir;
 							Thread.Sleep((int)speed);
-                            //if (position.X > GameWorld.CcoalMine.position.X)
-                            //{
-                            //    Thread.Sleep(100);
-                            //    GameWorld.fontCoal.coalCurrency++;
-							//    carryingCoal = true;
-                            //}
+							CheckCollision(GameWorld.CcoalMine);
+
 						}
 						while (carryingCoal == true)
 						{
@@ -90,7 +90,8 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
-							carryingCoal = false;
+							CheckCollision(GameWorld.Bwank);
+
 						}
 						break;
 
@@ -104,6 +105,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+							CheckCollision(GameWorld.GgoldMine);
 						}
 						while (carryingGold == true)
 						{
@@ -114,6 +116,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+							CheckCollision(GameWorld.Bwank);
 						}
 						break;
 
@@ -127,6 +130,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+							CheckCollision(GameWorld.DdiamondMine);
 						}
 						while (carryingDiamond == true)
 						{
@@ -137,26 +141,91 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
-                            
+							CheckCollision(GameWorld.Bwank);
+
 						}
 						break;
 				}
-				UpdateCollisionBox();
-				//CheckCollision() ;
-				
+
+
+
+
 			}
 			Thread.Sleep(10);
 		}
+
 		private void Move(GameTime gameTime)
 		{
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
 			UpdateCollisionBox();
-		}		
-
+		}
 		public override void OnCollision(GameObject otherObject)
 		{
-			Console.WriteLine("UpdateColl is a go");
+			switch (name)
+			{
+				case "CoalMiner":
+			        if (hasCollided == false)
+					{
+						if (otherObject is CoalMine)
+						{
+							GameWorld.CcoalMine.CollectCoal();
+							carryingCoal = true;
+							hasCollided = true;
+						}
+					}
+					hasCollided = false;
+					if (hasCollided == false)
+					{
+						if (otherObject is Bank)
+						{
+
+							GameWorld.fontCoal.CoalDeposit();
+							carriedCoal -= 10;
+							carryingCoal = false;
+						}
+
+					}
+					break;
+				case "GoldMiner":
+
+					if (hasCollided == false)
+					{
+						if (otherObject is GoldMine)
+						{
+							GameWorld.GgoldMine.CollectGold();
+							carryingGold = true;
+							hasCollided = true;
+						}
+					}
+					hasCollided = false;
+					if (otherObject is Bank)
+					{
+						GameWorld.fontGold.GoldDeposit();
+						carriedGold -= 10;
+						carryingGold = false;
+					}
+					break;
+				case "DiamondMiner":
+					
+					if(hasCollided == false)
+					{
+						if (otherObject is DiamondMine)
+						{
+							GameWorld.DdiamondMine.CollectDiamond();
+							carryingDiamond = true;
+							hasCollided = true;
+						}
+					}
+					hasCollided = false;
+					if(otherObject is Bank)
+					{
+						GameWorld.fontDiamond.DiamondDeposit();
+						carriedDiamond -= 10;
+						carryingDiamond = false;
+					}
+					break;
+			}
 		}
 		protected void UpdateCollisionBox()
 		{

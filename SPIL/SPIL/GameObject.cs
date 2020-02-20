@@ -10,7 +10,9 @@ namespace SPIL
 {
     public abstract class GameObject
     {
-        public Vector2 position;
+		public bool Enabled = true;
+
+		public Vector2 position;
 
         protected float drawLayer = 0.01f;
 

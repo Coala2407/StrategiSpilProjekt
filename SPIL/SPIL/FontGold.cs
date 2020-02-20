@@ -12,11 +12,14 @@ namespace SPIL
 {
    public class FontGold : GameObject
     {
-        public int goldCurrency = 10;
-        public FontGold()
+        public int goldCurrency = 0;
+		public static Semaphore depositGoldAccess = new Semaphore(0, 5);
+		public FontGold()
         {
             Thread fontThread = new Thread(fontMethod);
             fontThread.Start();
+
+			depositGoldAccess.Release(5);
         }
         private void fontMethod()
         {
@@ -31,5 +34,14 @@ namespace SPIL
             //base.Draw(spriteBatch);
             spriteBatch.DrawString(Assets.font, $"{goldCurrency}", new Vector2(875, 88), Color.Black);
         }
-    }
+
+		public void GoldDeposit()
+		{
+			depositGoldAccess.WaitOne();
+			Thread.Sleep(1000);
+			GameWorld.Sslave.carriedGold -= 5;
+			goldCurrency += 5;
+			depositGoldAccess.Release();
+		}
+	}
 }

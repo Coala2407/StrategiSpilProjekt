@@ -12,7 +12,9 @@ namespace SPIL
 {
     public class CoalMine : GameObject
     {
-        int amount = 1000;
+		public static Semaphore collectorCoalAccess = new Semaphore(0, 5);
+		
+		int amount = 1000;
 
         public int Amount
         {
@@ -35,9 +37,13 @@ namespace SPIL
             Thread coalMineThread = new Thread(coalMineMethod);
             coalMineThread.IsBackground = true;
             coalMineThread.Start();
-            sprite = Assets.CoalMine;
+
+			collectorCoalAccess.Release(5);
+
+			sprite = Assets.CoalMine;
             position = new Vector2((960/2+50), 40);
         }
+
         private void coalMineMethod()
         {
             while (true)
@@ -46,5 +52,16 @@ namespace SPIL
                 amount += 10;
             }
         }
-    }
+		public void CollectCoal()
+		{
+
+			collectorCoalAccess.WaitOne();
+			Thread.Sleep(5000);
+			amount -= 10;
+			GameWorld.Sslave.carriedCoal += 10;
+			Console.WriteLine(amount);
+			
+			collectorCoalAccess.Release();
+		}
+	}
 }
