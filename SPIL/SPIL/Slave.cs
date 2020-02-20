@@ -40,6 +40,8 @@ namespace SPIL
 			this.position = position;
 			this.name = name;
 			sprite = Assets.SlaveSprite;
+
+			collisionBox = new Rectangle(0,0, sprite.Width, sprite.Height);
 			 
 			Thread collectorAI = new Thread(CollectorAI);
             collectorAI.IsBackground = true;
@@ -138,7 +140,8 @@ namespace SPIL
 						break;
 				}
 				UpdateCollisionBox();
-				Console.WriteLine("UpdateColl is a go");
+				//CheckCollision() ;
+				
 			}
 			Thread.Sleep(10);
 		}
@@ -146,10 +149,11 @@ namespace SPIL
 		{
 			float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			position += ((velocity * speed) * deltaTime);
+			UpdateCollisionBox();
 		}		
 		public override void OnCollision(GameObject otherObject)
 		{
-			
+			Console.WriteLine("UpdateColl is a go");
 		}
 		protected void UpdateCollisionBox()
 		{
