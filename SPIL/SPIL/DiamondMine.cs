@@ -37,8 +37,7 @@ namespace SPIL
             diamondMineThread.IsBackground = true;
             diamondMineThread.Start();
             sprite = Assets.DiamondMine;
-            size = 0.3f;
-            position = new Vector2(960 / 2 + 30,450);
+            position = new Vector2(970 / 2 + 40, 400);
         }
         private void DiamondMineMethod()
         {

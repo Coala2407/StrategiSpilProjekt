@@ -35,11 +35,11 @@ namespace SPIL
             Thread coalMineThread = new Thread(coalMineMethod);
             coalMineThread.IsBackground = true;
             coalMineThread.Start();
-            size = 0.2f;
+
             sprite = Assets.CoalMine;
-            position = new Vector2((960/2+50), 50);
-			
-		}
+            position = new Vector2((960/2+50), 40);
+        }
+
         private void coalMineMethod()
         {
             while (true)
