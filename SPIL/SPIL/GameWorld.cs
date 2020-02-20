@@ -48,10 +48,10 @@ namespace SPIL
             Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
             Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
 
-            spriteBatch.Draw(collisionTexture, topLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(collisionTexture, bottomLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(collisionTexture, leftLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(collisionTexture, rightLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(Assets.collisionTexture, topLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(Assets.collisionTexture, bottomLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(Assets.collisionTexture, leftLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(Assets.collisionTexture, rightLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
         }
 #endif
 
@@ -120,7 +120,6 @@ namespace SPIL
 			GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
 			GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
 			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
-			GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
 
             // TODO: use this.Content to load your game content here
             //Load Debug hitbox
@@ -174,6 +173,9 @@ namespace SPIL
             foreach (GameObject go in GameObjectList)
             {
                 go.Draw(spriteBatch);
+#if DEBUG
+                DrawCollisionBox(go);
+#endif
             }
 
             spriteBatch.End();
@@ -182,27 +184,27 @@ namespace SPIL
         // Spawn units
         public void SpawnCoalMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
             if (fontCoal.coalCurrency >= 1)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "CoalMiner"));
                 fontCoal.coalCurrency -= 1;
             }
         }
 
         public void SpawnGoldMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
             if (fontCoal.coalCurrency >= 5)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "GoldMiner"));
                 fontCoal.coalCurrency -= 5;
             }
         }
 
         public void SpawnDiamondMiner()
         {
+                GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
             if (fontGold.goldCurrency >= 10)
             {
-                GameObjectList.Add(new Slave(spawnPoint, "DiamondMiner"));
                 fontGold.goldCurrency -= 10;
             }
         }

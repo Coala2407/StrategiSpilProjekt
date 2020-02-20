@@ -135,6 +135,7 @@ namespace SPIL
 							}
 							position += walkDir;
 							Thread.Sleep((int)speed);
+                            
 						}
 						break;
 				}
