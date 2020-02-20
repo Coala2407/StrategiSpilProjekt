@@ -21,7 +21,7 @@ namespace SPIL
             Thread coalThread = new Thread(CoalMethod);
             coalThread.Start();
             sprite = Assets.CoalCurrency;
-            position = new Vector2(795, 10);
+            position = new Vector2(800, 10);
         }
 
         private void CoalMethod()
